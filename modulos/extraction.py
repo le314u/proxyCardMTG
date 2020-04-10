@@ -5,9 +5,9 @@ import os #Biblioteca para manipular diretorios
 
     
 class extraction:
-    def __init__(self, html, verbose=False):
+    def __init__(self, verbose=False):
         self.Deck = {}
-        self.html = html
+        self.html = None
         self.nameDeck = ''
         self.pastaDeck = ''
         self.verbose = verbose

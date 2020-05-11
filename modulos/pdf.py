@@ -66,7 +66,7 @@ class pdf:
         image = ImageReader(pathImage)
 
         #Desenha a imagem
-        #self.file.drawImage(image,x1,y1, width=larguraCarta,height=alturaCarta)
+        self.file.drawImage(image,x1,y1, width=larguraCarta,height=alturaCarta)
 
         self.file.setStrokeColorRGB(0,0,0) 
         #Traça a silhueta
@@ -88,8 +88,3 @@ class pdf:
 
         #Incrementa o 'id' de posicionamento
         self.countCard()
-        
-
-    
-
-    

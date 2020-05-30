@@ -10,7 +10,6 @@ class persistence:
         '''Define pasta onde ira persistir as imagens do deck'''
         self.nameDeck = url.split("/")[-1].split("=")[-1]
         self.pastaDeck = "deck_"+self.nameDeck
-
         return (self.nameDeck, self.pastaDeck)
     
     def processOk(self, extensao):
@@ -44,6 +43,7 @@ class persistence:
             return False
 
     def load(self, extensao):
+        '''Abre um arquivo para leitura'''
         path_file = self.pastaDeck+"/"+self.nameDeck+"."+extensao
         file = open(path_file, 'r')
         content = ''

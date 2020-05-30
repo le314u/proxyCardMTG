@@ -25,34 +25,47 @@ class extraction:
         nameAttribute = re.sub("( |\([0-9]*\))", "", nameUnicode)
         return nameAttribute
     
+    def _nameCard(self, name):
+        nameCard = re.sub("(\\n|\\t)", "", name)
+        return nameCard
+
+    def _removeProtocol(self, uri):
+        url = re.sub("^https://", "", uri)
+        return url
+
     def catalogarDeck(self):
         '''Cataloga o Deck (pegando [qtd, nome, img, css])'''
         httpEstruct = BeautifulSoup(self.html, 'lxml')
 
         # verifica se o request ocorreu conforme o esperado
         try:
-            deck = httpEstruct.findAll("div", class_= "decklist my-3")
+            deck = httpEstruct.find("div", class_= "decklist my-3")
             part_deck = deck.findAll("div", class_= "deck-card-by-list")
             nKey = "";
         except:
             print("Deck Inexistente ou privado")
             return
-
         #Passa por todos os tipos de cartas
         for kindOfCard in part_deck:
             # Converte o nome para um nome valido para as propriedades
-            nameOfKind = kindOfCard.find(class_ = "deck-card-list__type")[0].contents
+            nameOfKind = kindOfCard.find(class_ = "deck-card-list__type").contents[0]
             nKey = self._name2nameAttribute(nameOfKind)
+            self.Deck[nKey] = []
             # Cada carta é um <li>
             blockOfCards = kindOfCard.findAll("li")
             for card in blockOfCards:
-                qtd = card.find("span", class_ = "card-quantity").contents
+                qtd = card.find("span", class_ = "card-quantity").contents[0]
                 detailsCard = card.find("a", class_ = "see-card-image card-detail text-truncate px-1")
-                nameOfCard = detailsCard.contents
-                urlImg = detailsCard['data-cardimageurl']
-                self.Deck[nKey] = []
+                nameOfCard = self._nameCard(detailsCard.contents[0])
+                urlImg = self._removeProtocol(detailsCard['data-cardimageurl'])
+                nameImg = urlImg.split('/')[-1]
                 if(self.verbose):
-                    print("Catalogando :"+nKey+" "*60)
-                self.Deck[nKey].append({"qtd":int(qtd),"name":nameOfCard,"url":urlImg,"img":"null"})
+                    print("Catalogando : "+nKey+" "*60)
+                self.Deck[nKey].append({
+                        "qtd":int(qtd),
+                        "name":nameOfCard,
+                        "url":urlImg,
+                        "img":nameImg
+                    })
         return self.Deck
    

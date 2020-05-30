@@ -2,7 +2,8 @@
 from modulos import extraction, pdf, persistence, request
 from ast import literal_eval
 
-url = input("Digite a url: ")
+#url = input("Digite a url: ")
+url = "https://burnmana.com/decks/brawl/brawl-kinnan/1590771030590"
 persistence = persistence.persistence()
 request = request.request()
 extract = extraction.extraction("oi")

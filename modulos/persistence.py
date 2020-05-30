@@ -1,16 +1,24 @@
 from pathlib import Path
 import os
+from urllib.parse import urlparse
+
+
 class persistence:
 
     def __init__(self):
+        self.url = ''
         self.nameDeck = ''
         self.pastaDeck = ''
+        self.site = ''
+        
 
     def processeUrl(self, url):
         '''Define pasta onde ira persistir as imagens do deck'''
+        self.url = url
         self.nameDeck = url.split("/")[-1].split("=")[-1]
         self.pastaDeck = "deck_"+self.nameDeck
-        return (self.nameDeck, self.pastaDeck)
+        self.site = urlparse(url).netloc
+        return (self.nameDeck, self.pastaDeck, self.site, self.url)
     
     def processOk(self, extensao):
         ''' Verifica o que ja foi feito '''

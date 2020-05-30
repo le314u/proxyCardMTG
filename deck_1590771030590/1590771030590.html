@@ -1,0 +1,3501 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="pt-br">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+<title>MTG Deck Simic Brawl para o Magic Arena por Renato Paula</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="BurnMana">
+<meta name="description" content="MTG Deck Simic no formato Brawl criado em 29/05/2020 por Renato Paula para o Magic Arena com 60 cartas dos tipos Artefatos, Criaturas, Feitiços, Mágicas Instantâneas, Planinautas, Terrenos, ">
+<meta name="keywords" content="Brawl Kinnan, Brawlmagic arena, magic the gathering, deck builder, decks, deck, online, marketplace, montador de decks magic">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<meta name="google-signin-client_id" content="148332837493-ssasjd5bmtd5h88eqve7u8d9ts88ktun.apps.googleusercontent.com">
+
+
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-c5b172d611f93b8c7b3",applicationID:"482683155"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var i=n[t]={exports:{}};e[t][0].call(i.exports,function(n){var i=e[t][1][n];return r(i||n)},i,i.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(e,n,t){function r(){}function i(e,n,t){return function(){return o(e,[u.now()].concat(f(arguments)),n?null:this,t),n?void 0:this}}var o=e("handle"),a=e(4),f=e(5),c=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",d=l+"ixn-";a(p,function(e,n){s[n]=i(l+n,!0,"api")}),s.addPageAction=i(l+"addPageAction",!0),s.setCurrentRouteName=i(l+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,i="function"==typeof n;return o(d+"tracer",[u.now(),e,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return n.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],t),e}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=i(d+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){var t=e.getEntries();t.forEach(function(e){"first-paint"===e.name?c("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&c("timing",["fcp",Math.floor(e.startTime)])})}function i(e,n){var t=e.getEntries();t.length>0&&c("lcp",[t[t.length-1]])}function o(e){if(e instanceof s&&!l){var n,t=Math.round(e.timeStamp);n=t>1e12?Date.now()-t:u.now()-t,l=!0,c("timing",["fi",t,{type:e.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,f,c=e("handle"),u=e("loader"),s=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),f=new PerformanceObserver(i);try{a.observe({entryTypes:["paint"]}),f.observe({entryTypes:["largest-contentful-paint"]})}catch(p){}}if("addEventListener"in document){var l=!1,d=["click","keydown","mousedown","pointerdown","touchstart"];d.forEach(function(e){document.addEventListener(e,o,!1)})}}},{}],3:[function(e,n,t){function r(e,n){if(!i)return!1;if(e!==i)return!1;if(!n)return!0;if(!o)return!1;for(var t=o.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}n.exports={agent:i,version:o,match:r}},{}],4:[function(e,n,t){function r(e,n){var t=[],r="",o=0;for(r in e)i.call(e,r)&&(t[o]=n(r,e[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],5:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,i=t-n||0,o=Array(i<0?0:i);++r<i;)o[r]=e[n+r];return o}n.exports=r},{}],6:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function i(e){function n(e){return e&&e instanceof r?e:e?c(e,f,o):o()}function t(t,r,i,o){if(!l.aborted||o){e&&e(t,r,i);for(var a=n(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function d(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||i(t)}function w(e,n){u(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:d,addEventListener:d,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(l.aborted=!0,s=l.backlog={})}var f="nr@context",c=e("gos"),u=e(4),s={},p={},l=n.exports=i();l.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(i.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[n]=r,r}var i=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){i.buffer([e],r),i.emit(e,n,t)}var i=e("ee").get("handle");n.exports=r,r.ee=i},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=E.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();u(y,function(n,t){e[n]||(e[n]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function i(){"complete"===d.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=e("handle"),u=e(4),s=e("ee"),p=e(3),l=window,d=l.document,m="addEventListener",v="attachEvent",g=l.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:g,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=n.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),e(2),d[m]?(d[m]("DOMContentLoaded",o,!1),l[m]("load",r,!1)):(d[v]("onreadystatechange",i),l[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=e(6)},{}],"wrap-function":[function(e,n,t){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;n.exports=function(e,n){function t(e,n,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){l([u,"",[r,a,i],f])}s(n+"start",[r,a,i],f);try{return c=e.apply(a,r)}catch(p){throw s(n+"err",[r,a,p],f),p}finally{s(n+"end",[r,a,c],f)}}return r(e)?e:(n||(n=""),nrWrapper[a]=e,p(e,nrWrapper),nrWrapper)}function u(e,n,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<n.length;c++)f=n[c],a=e[f],r(a)||(e[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||n){var o=c;c=!0;try{e.emit(t,r,i,n)}catch(a){l([a,t,r,i])}c=o}}function p(e,n){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(e);return t.forEach(function(t){Object.defineProperty(n,t,{get:function(){return e[t]},set:function(n){return e[t]=n,n}})}),n}catch(r){l([r])}for(var i in e)f.call(e,i)&&(n[i]=e[i]);return n}function l(n){try{e.emit("internal-error",n)}catch(t){}}return e||(e=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script><link rel="canonical" href="https://burnmana.com/mtg-decks-simic">
+
+
+<script>
+	  (function (a, s, y, n, c, h, i, d, e) {
+	      s.className += ' ' + y;
+	      h.start = 1 * new Date;
+	      h.end = i = function () {
+	          s.className = s.className.replace(RegExp(' ?' + y), '')
+	      };
+	      (a[n] = a[n] || []).hide = h;
+	      setTimeout(function () {
+	          i();
+	          h.end = null
+	      }, c);
+	      h.timeout = c;
+	  })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {'GTM-5WR6CBM': true});
+	  (function (i, s, o, g, r, a, m) {
+	      i['GoogleAnalyticsObject'] = r;
+	      i[r] = i[r] || function () {
+	          (i[r].q = i[r].q || []).push(arguments)
+	      }, i[r].l = 1 * new Date();
+	      a = s.createElement(o),
+	          m = s.getElementsByTagName(o)[0];
+	      a.async = 1;
+	      a.src = g;
+	      m.parentNode.insertBefore(a, m)
+	  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  	ga('create', 'UA-108214723-1', 'auto', {'useAmpClientId': true});
+  	ga('require', 'GTM-5WR6CBM');
+ 	ga('send', 'pageview');
+</script>
+
+
+<!-- Facebook Pixel Code -->
+<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window,document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '380839005748563'); 
+	fbq('track', 'PageView');
+</script>
+<noscript>
+ 	<img height="1" width="1" src="https://www.facebook.com/tr?id=380839005748563&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link href="//cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://d2a6pxjvsktfgo.cloudfront.net/b/css/external/mdb.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/keyrune@latest/css/keyrune.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.jsdelivr.net/npm/mana-font@latest/css/mana.css" rel="stylesheet" type="text/css" />
+<link href="//cdn.jsdelivr.net/npm/awesomplete/awesomplete.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+
+<!-- black #211915
+red c22e30
+orange dfa23a
+brown d58438 -->
+
+<style>
+body{background-color: #f8f9fa;}
+
+/* SS Icons */
+.ss-common{font-weight:900;color: inherit;-webkit-font-smoothing: antialiased;display: inline-block;font-style: normal;font-variant: normal;text-rendering: auto;line-height: 1;}
+
+.ad-container{
+	width: 100%;
+	display: block;
+  height: auto;
+  text-align: center;
+  margin: 10px 0;
+}
+.ad-container-vertical{
+	text-align: right;
+}
+
+/* Ads size */
+.ad-container .adunit.adunit{
+	display: block;
+  width: 300px;
+  height: 250px;
+  margin: auto;
+  max-width: 100%;
+}
+/* breakpoint SM */
+@media (min-width: 577px) {
+	.ad-container .adunit{
+	  width: 336px !important;
+	  height: 280px !important;
+	}
+}
+
+/* breakpoint MD */
+@media (min-width: 768px) {
+	.ad-container .adunit{
+	  width: 728px !important;
+	  height: 90px !important;
+	}
+}
+
+/* breakpoint LG */
+@media (min-width: 992px) {
+	.ad-container .adunit.adunit-bottom{
+		width: 970px !important;
+		height: 250px !important;
+	}
+}
+
+/* breakpoint XL */
+@media (min-width: 1200px) {
+	.ad-container .adunit.adunit-bottom{
+		width: 970px !important;
+		height: 250px !important;
+	}
+}
+
+
+/* .ad-container .adunit{background: #ccc;} */
+
+.carousel-banner {min-height: 250px; height: 250px}
+.carousel-banner {height: 25vh;}
+.carousel-banner .view{height: 100%;}
+.carousel-banner .carousel-inner, 
+.carousel-banner .carousel-inner .active, 
+.carousel-banner .carousel-inner .carousel-item,
+.carousel-banner .carousel-inner .carousel-item .carousel-item-content{height: 100%}
+
+@media (min-width: 1025px){
+	.container-fluid{
+		padding-left: 3rem;
+		padding-right: 3rem;
+		max-width: 1440px;
+	}
+}
+@media (max-width: 767px) {
+	.carousel-banner .carousel-inner .carousel-item .carousel-item-content{
+		text-align: center !important;
+	}
+}
+
+.dropdown-menu{line-height: initial;}
+.breadcrumb{font-size: 0.9rem;background: none;}
+
+.navbar-main{
+	border-bottom: .0625rem solid #e0e0e0;
+	box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.1);	
+}
+.navbar-main .navbar-brand > img{
+	margin-top: -18px;
+}
+.navbar-nav.subnav .nav-link{
+	position: relative;
+	padding-left: .5rem;
+	padding-right: .5rem;
+}
+.navbar-nav.subnav .nav-link .badge{
+	position: absolute;
+	top: 1px;
+	right: 0;
+}
+.navbar-nav.subnav .nav-link:hover::after{
+	content:"";
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left:0;
+	height: 2px;
+	background: #000;
+}
+.badge-new{
+	color: #fff;
+	background-color: #c22e30 !important;
+}
+.badge-sm{
+	font-size: 0.6rem;
+	line-height: 1;
+	padding: 2px 4px;
+	text-transform: lowercase;
+}
+.searchform-container{
+	max-width: 100%;
+	margin-left: 0;
+	margin-right: auto;
+}
+.searchform{
+	/* position: absolute;left: calc(50% - 250px);width: 500px;max-width: 100%;line-height: inherit; */
+	border: 1px solid rgba(0,0,0,.1);
+	border-radius: .5rem;
+}
+
+
+/* .awesomplete-searchform > .awesomplete{flex-grow: 1;}
+.awesomplete-searchform > .awesomplete > input,
+.awesomplete-searchform > .awesomplete > input{box-shadow: none!important;font-size: 1rem;vertical-align: baseline;} 
+.awesomplete>ul{z-index: 2;background: #fff}
+.awesomplete>ul>li[aria-selected=true] {background:#e0e0e0;color:#000;}
+.awesomplete>ul>li:hover {background:#e0e0e0;color:#000;}
+.awesomplete>.visually-hidden{display: none !important;}
+ */
+
+.twitter-typeahead{
+	flex-grow: 1;
+}
+.twitter-typeahead input.typeahead{
+	box-shadow: none!important;
+	font-size: 1rem;
+	vertical-align: baseline!important;
+	/* height: 34px; */
+	height: auto;
+}
+.twitter-typeahead .tt-menu {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  margin-top: 0.381rem;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12); 
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.twitter-typeahead .tt-menu .tt-suggestion{
+  cursor: pointer;
+  font-weight: 300;
+  line-height: 30px;
+  color: #6c757d;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.twitter-typeahead .tt-menu .tt-suggestion a {
+	color: inherit;
+}
+.twitter-typeahead .tt-menu .tt-suggestion:hover,
+.twitter-typeahead .tt-menu .tt-suggestion.tt-cursor{
+  background: #f8f9fa;
+}
+.twitter-typeahead .tt-menu .tt-suggestion .tt-highlight{}
+.twitter-typeahead.invalid, .twitter-typeahead:focus.invalid {
+  border-bottom: 1px solid #F44336;
+  box-shadow: 0 1px 0 0 #F44336;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0px;
+	margin-bottom: 0;
+}
+
+
+.rounded-circle.rounded-circle-border-black{
+	border: 3px solid #212529;
+}
+.expansion-img{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+}
+
+.main-card{
+}
+
+.main-card--header{
+	padding-top: 15px;
+	padding-bottom: 0;
+}
+.main-card--header_content{
+	margin-bottom: 1rem;
+}
+.main-card--header__divider{
+	margin-top: 0;
+	margin-bottom: 2rem;
+}
+.main-card--body{
+	padding-top: 0;
+}
+.main-card--header__title{
+	font-size: 2rem;
+	line-height: 1;
+	padding-bottom: 15px;
+	margin-bottom: 0px;
+	position: relative;
+}
+.main-card--header__title::after{
+  content: "";
+  width: 100px;
+  height: 5px;
+  background: #c22e30;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.main-card--header__navbar{
+	flex-wrap: nowrap;
+  overflow: auto;
+  width: 100%;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.main-card--header__navbar .nav-item{flex-shrink: 0;}
+
+.content-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.content-header--title{
+	font-size: 2rem;
+	line-height: 1;
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+	position: relative;
+}
+.content-header--title::after{
+	content: "";
+  width: 100px;
+  height: 5px;
+  background: #c22e30;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.content-header--action{}
+
+/* section header */
+.section-header{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.section-header--title{
+	font-size: 1.5rem;
+	line-height: 1;
+	padding-bottom: 10px;
+	margin-top: 8px;
+	margin-bottom: 20px;
+	position: relative;
+}
+.section-header--title::after{
+	content: "";
+  width: 100px;
+  height: 3px;
+  background: #c22e30;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.section-header--action{}
+
+.carousel .controls-top.controls-top-floating{
+	position: absolute;
+	top: 50%;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.carousel .controls-top.controls-top-floating .btn:first-of-type{
+	margin-left: -10px;
+}
+.carousel .controls-top.controls-top-floating .btn:last-of-type{
+	margin-right: -10px;
+}
+
+/* Helpers */
+.table.table-clickable tbody tr{
+	transform: rotate(0);
+}
+.btn-no-waves .btn.waves-effect{position: static;}
+.font-xsmall{font-size: 0.7rem;}
+.truncate {
+ 	width: 275px;
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+}
+.scrollable{
+	flex-wrap: nowrap;
+	flex-direction: row;
+	overflow: auto;
+}
+
+.scrollable *{
+	flex-shrink: 0;
+}
+.sticky {
+	position: sticky;     
+	position: -webkit-sticky;     
+	top: 10px;
+}
+
+/* Decks Page*/
+.decks-nav{
+	flex-wrap: nowrap;
+	overflow: auto;
+	width: 100%;
+}
+.decks-nav .nav-item{
+	flex-shrink: 0;
+	flex-basis: auto;
+}
+.decks-nav .nav-item .nav-link.active{
+	color: #211915;
+	font-weight: 700;
+	border-bottom: 2px solid #211915;
+}
+.decks .deck-item .card-title.card-title-lg{
+	height: 56px;
+	overflow: hidden;
+}
+
+.card-title-2x{
+	height: 56px;
+	overflow: hidden;
+}
+
+.section-title--bg{
+	background: #eceff1;
+  font-size: 1rem;
+  padding: 8px 1rem;
+  font-weight: 300 !important;
+  margin-bottom: 2rem;
+}
+
+.text-truncate-4-rows{
+  display: -webkit-box;
+	overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.text-truncate-3-rows{
+  display: -webkit-box;
+	overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.text-truncate-2-rows{
+  display: -webkit-box;
+	overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.chip.chip-sm{
+	font-weight: 300;
+}
+.chip.chip-img .img{
+	text-align: center;
+	float: left;
+  width: 32px;
+  height: 32px;
+  margin: 0 8px 0 -12px;
+  border-radius: 50%;
+  background: #fff;
+  line-height: 32px;
+}
+
+/* Deck Page */
+
+.decklist{
+	column-count: 2;
+	height: auto;
+}
+.decklist .deck-card-by-list{
+	-webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+.decklist .deck-card-by-list .deck-card-list__type{
+	font-size: 1rem;
+	line-height: 1.5rem;
+	margin-bottom: 10px;
+	margin-top: 0;
+	font-weight: normal;
+}
+.decklist .deck-card-by-list .deck-card-list__item{
+	line-height: 1.5rem;
+}
+.decklist .deck-card-by-list .deck-card-list__item .card-detail{
+	max-width: 80%;
+}
+.decklist .deck-card-by-list .deck-card-list__item .card-mana-cost{
+	flex-shrink: 0;
+}
+
+.ms.ms-cost.ms-xs{
+	font-size: 0.6rem;
+}
+
+@media (min-width: 577px) {
+	.scrollable-sm-0{
+		flex-wrap: initial !important;
+		flex-direction: row;
+		overflow: initial !important;
+		width: 100%;
+	}
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+	.content-header--title{
+		font-size: 1.5rem;
+	}
+	/* .navbar-main .navbar-brand > img{
+		height: 40px;
+		width: 148px;
+		margin-top: -20px;
+	} */
+	#carousel-example-1z{
+		height: 220px;
+		height: 33vh;
+	}
+	.awesomplete-searchform{
+		position: relative;
+		left: initial;
+		flex-grow: 1;
+	}
+	.decklist{
+		column-count: 2;
+	}
+	
+}
+@media (max-width: 576px) {
+	.main-card{
+		box-shadow: none;
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.main-card--header__title{
+		font-size: 1.3rem;
+	}
+	.chip.chip-sm{
+		font-size: 10px;
+		padding: 0 8px;
+		line-height: 24px;
+		height: 24px;
+	}
+	.decklist{
+		column-count: 1;
+	}
+	.card-title-2x{
+		height: auto;
+		max-height: 56px;
+	}
+}
+
+/* Carrinho de compras */
+.shoppingcart-product-price {
+	font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: .25rem;
+}
+.item-image {
+    float: left;
+    width: 40%;
+    height: 113px;
+    cursor: pointer;
+}
+
+.item-details {
+    float: left;
+    width: 54%;
+    margin-left: 4%;
+    position: relative;
+}
+
+.card-product-name {
+	color: #666;	
+}
+
+.selected-product-quantity, .shopcartpage-selected-product-quantity {
+	width: 75px !important;	
+}
+
+#empty-cart {
+	display: none;
+    height: 310px;
+    max-width: 400px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 1032;
+    right: 10px;
+    top: 75px;
+	padding: 10px;
+}
+
+#cart-items-detail {
+	display: none;
+    height: 430px;
+    max-width: 400px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 1032;
+    right: 10px;
+    top: 75px;
+}
+
+@media only screen and (min-width: 320px) {
+	#cart-items {
+		max-height: 17em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+	
+	.shopcart-title {
+		font-size: 18px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (min-height: 500px) {
+	#cart-items {
+		max-height: 23em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+	
+@media only screen and (min-width: 360px) {
+	#cart-items {
+		max-height: 28em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 375px) {
+	#cart-items {
+		max-height: 31em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 375px) and (min-height: 800px) {
+	#cart-items {
+		max-height: 41em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 411px) {
+	#cart-items {
+		max-height: 36em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 411px) and (min-height: 800px) {
+	#cart-items {
+		max-height: 42em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	#cart-items {
+		max-height: 52em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 1024px) and (min-height: 1366px) {
+	#cart-items {
+		max-height: 80em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 1366px) and (min-height: 768px) {
+	#cart-items {
+		max-height: 35em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 1440px) and (min-height: 900px) {
+	#cart-items {
+		max-height: 50em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 1920px) and (min-height: 1080px) {
+	#cart-items {
+		max-height: 57em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+@media only screen and (min-width: 2560px) and (min-height: 1440px) {
+	#cart-items {
+		max-height: 82em;
+	    overflow-y: visible;
+	    overflow-x: hidden;
+	    text-align: left;
+	    margin: 0 .875em .625em;
+	}
+}
+
+.cart-item {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 15px;
+}
+
+.cart-item-image {
+	width: 75px;
+	margin-top: 5px;
+}
+
+#cart-title, #cart-total {
+	margin-top: 10px;
+	margin-left: 10px
+}
+
+#cart-close-button {
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.card-offer-image {
+	width: 75px;
+	height: 75px;
+}
+.widget-content .single-post {border-bottom: 1px solid #e0e0e0; margin-bottom:1.5rem;}
+
+@media screen and (min-width: 1000px) {
+	#order-items-size {
+	 	position: absolute;
+	    z-index: 1000;
+	    margin-left: 20px;
+	    margin-top: 10px;
+	    font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	#order-items-size {
+	 	position: absolute;
+	    z-index: 1000;
+	    margin-left: 20px;
+	    font-size: 10px;
+	    margin-top: 2px;
+	}
+}
+/* Carrinho de compras */
+
+.pagination .page-item.active .page-link {background-color: #212121;}
+.reverse-card {background-color: #f8f9fa;}
+</style>
+	<meta property="og:url" content="https://burnmana.com/decks/brawl/simic/1590771030590" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Deck Magic the Gathering Brawl Kinnan Brawl na BurnMana" />
+<meta property="og:description" content="Gerencie, importe/exporte seus decks de Magic Arena, MOL e muito mais na BurnMana" />
+<meta property="og:image" content="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/kinnan-bonder-prodigy-338.jpg" />
+	
+	
+	
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://d2a6pxjvsktfgo.cloudfront.net/b/images/ico/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://d2a6pxjvsktfgo.cloudfront.net/b/images/ico/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://d2a6pxjvsktfgo.cloudfront.net/b/images/ico/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://d2a6pxjvsktfgo.cloudfront.net/b/images/ico/apple-touch-icon-57x57.png">
+		<link rel="shortcut icon" href="https://d2a6pxjvsktfgo.cloudfront.net/b/images/ico/favicon.ico">
+		
+
+	<script type="text/javascript">
+	function isTouchDevice(){
+	    return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+	}
+
+	if(!isTouchDevice()){
+		(function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    if (d.getElementById(id)) return;
+	    js = d.createElement(s); js.id = id;
+	    js.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+	    fjs.parentNode.insertBefore(js, fjs);
+	 	}(document, 'script', 'adsense'));
+		
+		(adsbygoogle = window.adsbygoogle || []).push({
+	    google_ad_client: "ca-pub-2584662991254321",
+	    enable_page_level_ads: true
+	  });
+	}
+</script>
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2584662991254321",
+    enable_page_level_ads: true
+  });
+</script> -->
+	<style>
+		.stepper-vertical li .step-content{
+			width: calc(100% - 3rem);
+		}
+	</style>
+</head>
+<body>
+	<main class="main">
+		
+
+
+
+
+
+
+<div id="background-highlight-zoom"></div>
+<header class="main-header">
+	<a id="nav-top"></a>
+	<!-- Navbar -->
+	<nav class="navbar navbar-main navbar-expand-lg navbar-light white px-lg-0 pb-0">
+		<div class="first-row container-fluid align-items-start">
+			<button class="navbar-toggler py-2 px-0 mr-3" type="button" 
+				data-toggle="collapse" data-target="#navbarSupportedContent"
+	      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <i class="fas fa-bars"></i>
+	    </button>
+	     
+			<a class="navbar-brand mr-auto mr-sm-2 mr-lg-4" href="/"> 
+				<img id="burnmana-logo" height="36" width="134" alt="BurnMana" src="https://burnmana.com/b/images/logo.svg">
+			</a>
+			<!-- Search form -->
+			<div class="searchform-container d-flex flex-column flex-grow-1 order-2 order-md-1">
+				<form id="search-form" action="/busca" class="searchform form-inline d-flex flex-row justify-content-center md-form form-lg px-3 m-0 hoverable">
+					<i class="fas fa-search mr-3" aria-hidden="true"></i>
+			  	<input id="search-term" name="q" autocomplete="off" class="typeahead w-100 m-0 py-2 form-control form-control-lg border-0" type="search" placeholder="Decks, cartas" aria-label="Pesquisar">
+				</form>
+		 		
+				<ul class="scrollable scrollable-sm-0 subnav navbar-nav justity-content-start-sm justify-content-between font-small pt-2">
+					<li class="nav-item">
+						<a data-toggle="tooltip" data-placement="bottom" title="Expansão Ikoria" href="/expansoes-magic-the-gathering/ikoria-terra-dos-colossos/cartas-lancadas-iko" class="nav-link"><i class="ss ss-iko mr-1"></i>Ikoria<span class="badge badge-sm badge-pill badge-new">Novo</span></a>
+					</li>
+					<li class="nav-item">
+						<a data-toggle="tooltip" data-placement="bottom" title="Expansão Commander 2020" href="/expansoes-magic-the-gathering/commander-2020/cartas-lancadas-c20" class="nav-link"><i class="ss ss-c20 mr-1"></i>Commander 2020</a>
+					</li>
+					<li class="nav-item">
+						<a data-toggle="tooltip" data-placement="bottom" title="Decks Standard" href="/decks/standard" class="nav-link"><i class="fas fa-layer-group mr-1"></i>Standard</a>
+					</li>
+					<li class="nav-item">
+						<a data-toggle="tooltip" data-placement="bottom" title="Decks Modern" href="/decks/modern" class="nav-link"><i class="fas fa-layer-group mr-1"></i>Modern</a>
+					</li>
+					<li class="nav-item">
+						<a data-toggle="tooltip" data-placement="bottom" title="Torneios Standard" href="/torneios/standard" class="nav-link"><i class="fas fa-trophy mr-1"></i>Standard</a>
+					</li>
+					<li class="nav-item">
+						<a data-toggle="tooltip" data-placement="bottom" title="Torneios Modern" href="/torneios/modern" class="nav-link"><i class="fas fa-trophy mr-1"></i>Modern</a>
+					</li>
+		 		</ul>
+	 		</div>
+	 		<div id="navbarSupportedContent" class="navbar-collapse collapse order-1 order-md-2 ml-sm-2 ml-lg-4">
+				<ul class="navbar-nav font-weight-normal">
+						<li class="nav-item">
+							<a href="/torneios" class="nav-link">Torneios</a>
+						</li>
+						<li class="nav-item">
+							<a href="/decks" class="nav-link">Decks</a>
+						</li>
+						<li class="nav-item">
+							<a href="/expansoes-magic-the-gathering" class="nav-link">Expansões</a>
+						</li>
+		 		</ul>
+	 		</div>
+			<ul class="navbar-nav nav-flex-icons order-0 order-md-3 ml-sm-2 ml-lg-4">
+				<li class="nav-item dropdown">
+					<a class="nav-link waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<i class="fas fa-tags"></i>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-dark" aria-labelledby="cards-menu">
+						<h6 class="dropdown-header pl-1">Comprar</h6>
+						<a class="dropdown-item waves-effect waves-light"
+							href="/cartas-magic-the-gathering/pesquisar?items=60&visualizar=imagem&tipo_envio=C">
+								<i class="far fa-gem pink-text pr-2"></i>Curadoria Premium</a> 
+						<a class="dropdown-item waves-effect waves-light" 
+							href="/cartas-magic-the-gathering/pesquisar?items=60&visualizar=imagem&tipo_envio=V">
+								<i class="fas fa-users pr-2"></i>Vendedores</a>
+						
+<!-- 						<a class="dropdown-item waves-effect waves-light"  -->
+
+<!-- 								<i class="fas fa-check-circle pr-2"></i>Lojas oficiais</a> -->
+						
+						<div class="dropdown-divider"></div>
+						<h6 class="dropdown-header pl-1">Vender</h6>
+						<a class="dropdown-item waves-effect waves-light"
+							href="/curadoria-premium-cartas-magic-the-gathering">
+							<i class="far fa-gem pink-text pr-2"></i>Curadoria Premium
+						</a> 
+						<a class="dropdown-item waves-effect waves-light" href="/venda-direta-cartas-magic-the-gathering">
+							<i class="fas fa-tags blue-text pr-2"></i>Anunciar cartas</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 
+						<i id="user-menu-item" class="fas fa-user"></i> 
+					</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-dark" aria-labelledby="navbar-user-menu">
+						<div class="content-logged-out">
+							<a class="dropdown-item waves-effect waves-light" href="/usuario/cadastrar">Cadastre-se</a> 
+							<a class="dropdown-item waves-effect waves-light" data-private="true">Login</a> 
+						</div>
+
+					<div class="content-logged-in">
+						<strong class="logged-user-first-name d-block" style="font-size: 12px;">Entrar</strong>
+						<small class="logged-user-email"></small>
+						<div class="dropdown-divider"></div>
+						
+						<a class="dropdown-item waves-effect waves-light" href="/usuario/favoritos"><i class="fas fa-heart mr-2"></i>Favoritos</a> 
+						<a class="dropdown-item waves-effect waves-light" href="/usuario/decks"><i class="fas fa-layer-group mr-2"></i>Meus decks</a>
+						<a class="dropdown-item waves-effect waves-light" href="/usuario/pedidos"><i class="fas fa-cubes mr-2"></i>Minhas compras</a> 
+						<a class="dropdown-item waves-effect waves-light" href="/usuario/vendas"><i class="fas fa-store mr-2"></i>Minha loja</a>
+						<a class="dropdown-item waves-effect waves-light" href="/usuario/creditos"><i class="fas fa-wallet mr-2"></i>Créditos BurnMana</a>
+						<a class="dropdown-item waves-effect waves-light" href="/usuario/configuracoes"><i class="fas fa-cog mr-2"></i>Configurações</a>
+
+						<div class="dropdown-divider"></div>
+							<a class="dropdown-item waves-effect waves-light dologout" href="javascript:void(0);"><i class="fas fa-sign-out-alt mr-2"></i>Sair</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<span id="order-items-size" class="badge badge-pill badge-success"></span> 
+					<a tabindex="0" id="open-shopcart" class="nav-link waves-effect waves-light" href="javascript:void(0);"> 
+						<i class="fas fa-shopping-cart"></i> 
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+	</nav>
+</header>
+
+
+
+
+
+
+
+
+
+<div id="messages-content">
+	
+	
+	
+	
+	
+	
+	
+</div>
+<div class="modal fade right" id="shopcart-modal" tabindex="-1"
+	role="dialog" aria-labelledby="shopcart" data-backdrop="true"
+	data-gtm-vis-first-on-screen-2340190_1302="29146"
+	data-gtm-vis-total-visible-time-2340190_1302="100"
+	data-gtm-vis-has-fired-2340190_1302="1" aria-hidden="true"
+	style="display: none;">
+	
+	<div class="modal-dialog modal-full-height modal-right" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="padding:10px !important;padding-bottom:5px !important;">
+				<span class="heading shopcart-title">Meu carrinho de compras</span>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+
+			<div class="modal-body" style="padding:0px !important;">
+				<ul id="cart-items" class="scrollbar scrollbar-black bordered-black square thin list-group z-depth-0"></ul>
+			</div>
+
+			<div class="modal-footer justify-content-center">
+				<p>Total (<b id="shopcart-quantity"></b> itens): <b id="cart-items-total"></b></p>
+				<a href="/usuario/checkout" class="btn btn-success btn-block" style="margin-bottom:10px">Finalizar Compra</a>
+				<a class="btn btn-link btn-sm right-side" href="/usuario/carrinho-de-compras">Ver meu carrinho</a>
+			</div>
+		</div>
+	</div>
+</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-9">
+					<div class="ad-container">
+	<ins class="adsbygoogle adunit adunit-top"
+	     data-ad-client="ca-pub-2584662991254321"
+	     data-ad-slot="5221356458"></ins>
+	 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+					<div class="card main-card">
+						<section class="text-center white-text d-md-flex justify-content-between p-3 black lighten-2">
+    <h5 class="mb-md-0 mb-4 mt-2 pt-1"><i class="fas fa-gamepad mr-3"></i>DeckCombat - Escolha seu formato e vote no deck ganhador de cada combate para subir no <span class="badge badge-pill badge-new">Novo</span> ranking</h5>
+    <a class="btn btn-outline-white btn-rounded" data-content="/deckcombat" data-target="#deckcombat-modal">Jogue grátis</a>
+</section>
+
+						<div class="card-header main-card--header border-0 white my-4">
+							<div class="main-card--header_content d-flex justify-content-between align-items-start">
+								<h1 class="main-card--header__title mr-2">Deck Brawl Kinnan</h1>
+     							<div class="main-card--header__action d-lg-flex">
+     								<a hidden class="mx-2 text-dark" href="/usuario/decks/editar/1590771030590" title="Editar deck" data-owner-code="1562372643778" data-user-logged><i class="fa-lg far fa-edit"></i></a>
+     								<a class="d-none d-lg-block mx-2" data-target="#embed-modal" data-toggle="modal" title="Incorporar deck"><i class="fa-lg fas fa-code"></i></a>
+									<a class="d-none d-lg-block mx-2" data-target="#share-content-modal" data-toggle="modal" data-shareurl="https://burnmana.com/mtg-decks-simic" data-sharetext="MTG Deck Simic no formato Brawl criado em 29/05/2020 por Renato Paula para o Magic Arena com 60 cartas dos tipos Artefatos, Criaturas, Feitiços, Mágicas Instantâneas, Planinautas, Terrenos, " title="Compartilhar deck"><i class="fa-lg fas fa-share-alt"></i></a>
+									<a class="d-block mx-2" data-private="true" data-target="favorite-deck" data-type="DECK" data-favorite="false" data-deckformat="BRAWL" data-deckcode="1590771030590" title="Deck favorito"><i class="fa-lg fa-heart far"></i></a>
+     								<a class="d-none d-lg-block mx-2 text-dark" data-private="true" data-user="" href="/usuario/decks/copiar/brawl/1590771030590" title="Copiar e editar deck"><i class="fa-lg far fa-clone"></i></a>
+     								<a class="d-none d-lg-block ml-2 dropdown-toggle" role="button" data-toggle="dropdown" title="Exportar deck"><i class="fa-lg fas fa-file-download"></i></a>
+
+									<div class="dropdown-menu">
+    									<a data-private="true" data-user="" class="dropdown-item" href="/decks/brawl/simic/exportar-para-mol/1590771030590/en" title="Exportar para o MOL"><i class="ss ss-common ss-pmodo mr-2"></i>MOL</a>
+													
+											<a data-private="true" data-user="" class="dropdown-item" href="/decks/brawl/simic/exportar-para-magic-arena/1590771030590/pt-br" title="Exportar para o Magic Arena"><i class="ss ss-common ss-fw ss-parl3 mr-2"></i>ARENA</a>
+										
+   									</div>
+								</div>
+							</div>
+							<ul class="mt-3 mb-2 list-unstyled list-inline font-small">
+				     			<li class="list-inline-item pr-2" title="Data do torneio">
+						     		<i class="fas fa-calendar-alt pr-1"></i>29/05/2020
+						     	</li>
+					     		<li class="list-inline-item pr-2" title="Total de cartas maindeck + sideboard">
+				      				<i class="fas fa-th-list pr-1"></i>60 cartas
+				      			</li>
+				      			
+				      			
+				      				
+				      				
+								      	<li class="list-inline-item pr-2">
+								      		<i class="fas fa-user pr-1"></i>
+							      			<a class="text-capitalize" href="/decks/usuario/renato-da-silva-de-paula/1562372643778" title="Ver os decks de renato da silva de paula">renato paula</a>
+								      	</li>
+				      				
+				      			
+				      			
+				     			<li class="list-inline-item pr-2" title="Formato do deck">
+									<i class="fas fa-shield-alt pr-1"></i>
+									<a class="text-capitalize" href="/decks/brawl" title="Ver os decks do formato Brawl">Brawl</a>
+								</li>
+								
+									<li class="list-inline-item pr-2" title="Tipo do deck">
+										
+										
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<i class="ss ss-simic mr-1"></i>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+											<a class="text-capitalize" href="/mtg-decks-simic" title="Ver os decks do tipo Simic">Simic</a>
+									</li>
+								
+				     			
+					  	    	
+						      	
+				    		</ul>
+							<hr class="main-card--header__divider">
+						</div>
+						
+						<div class="card-body main-card--body">
+							<div class="row">
+								<div class="col-lg-9">
+									<div class="deck-summary">
+										<span><i class="ss ss-fw ss-bcore ss-mythic ss-2x" title="Quantidade de cartas míticas no deck"></i>0</span>
+										<span><i class="ss ss-fw ss-bcore ss-rare ss-2x" title="Quantidade de cartas raras no deck"></i>17</span>
+										<span><i class="ss ss-fw ss-bcore ss-uncommon ss-2x" title="Quantidade de cartas incomuns no deck"></i>9</span>
+										<span><i class="ss ss-fw ss-bcore ss-common ss-2x" title="Quantidade de cartas comuns no deck"></i>25</span>
+			     					</div>
+			     					
+									<!-- Deck total value BRL -->
+									
+										<p class="lead my-2">Valor do deck <b>R$ 618,52</b></p>
+									
+
+									<div class="decklist my-3">
+										
+										
+										
+											<div class="deck-card-by-list">
+												<h2 class="deck-card-list__type">Artefatos (6)</h2>
+												<ul class="deck-card-list list-unstyled font-small">
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-nyx-lotus"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/thb/nyx-lotus-344.jpg">Lótus-de-Nyx
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-4 ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 8,96</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-the-great-henge"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/eld/the-great-henge-161.jpg">O Grande Círculo
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-7 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 41,58</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-mana-geode"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/war/mana-geode-241.jpg">Geodo de Mana
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-3 ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,12</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-arcane-signet"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/c20/arcane-signet-237.jpg">Sinete Arcano
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-2 ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 13,61</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-heraldic-banner"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/eld/heraldic-banner-222.jpg">Estandarte Heráldico
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-3 ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,40</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-simic-locket"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/mb1/simic-locket-1629.jpg">Medalhão Simic
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-3 ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,10</span>
+														
+													
+												</ul>
+											</div>
+										
+											<div class="deck-card-by-list">
+												<h2 class="deck-card-list__type">Criaturas (24)</h2>
+												<ul class="deck-card-list list-unstyled font-small">
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-cavalier-of-thorns"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/m20/cavalier-of-thorns-167.jpg">Cavaleiro dos Espinhos
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-2 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 22,65</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-voracious-greatshark"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/voracious-greatshark-320.jpg">Megatubarão Voraz
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-3 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 4,98</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-humble-naturalist"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/humble-naturalist-160.jpg">Naturalista Humilde
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-1 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,25</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-questing-beast"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/eld/questing-beast-372.jpg">Fera das Demandas
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-2 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 50,68</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-incubation-druid"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/prna/incubation-druid-131s.jpg">Druida da Incubação
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-1 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 2,50</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-leafkin-druid"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/m20/leafkin-druid-178.jpg">Druida Fóleo
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-1 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,14</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-paradise-druid"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/pwar/paradise-druid-171.jpg">Druida do Paraíso
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-1 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,81</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-shifting-ceratops"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/m20/shifting-ceratops-194.jpg">Cerátopo-camaleão
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-2 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 3,41</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-yorvo-lord-of-garenbrig"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/peld/yorvo-lord-of-garenbrig-185p.jpg">Yorvo, Senhor de Pontegaren
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 2,00</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-gilded-goose"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/eld/gilded-goose-369.jpg">Ganso Dourado
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 14,00</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-kinnan-bonder-prodigy"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/kinnan-bonder-prodigy-338.jpg">Kinnan, Vinculador Prodígio
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 94,00</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-ilysian-caryatid"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/thb/ilysian-caryatid-174.jpg">Cariátide Ilisiana
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-1 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,20</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-gyre-engineer"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/rna/gyre-engineer-180.jpg">Engenheiro da Espiral
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-1 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,20</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-end-raze-forerunners"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/prna/end-raze-forerunners-124s.jpg">Pioneiros do Arrasamento Final
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-5 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,95</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-thorn-mammoth"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/eld/thorn-mammoth-323.jpg">Thorn Mammoth
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-5 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 1,75</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-god-eternal-rhonas"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/ps19/god-eternal-rhonas-163.jpg">Eterno-deus Rhonas
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-3 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 10,00</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-agent-of-treachery"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/m20/agent-of-treachery-43.jpg">Agente da Traição
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-5 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 10,90</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-prime-speaker-vannifar"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/rna/prime-speaker-vannifar-195.jpg">Oradora Principal Vannifar
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-2 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 7,99</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-frilled-mystic"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/rna/frilled-mystic-174.jpg">Mística de Gola
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,32</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-stonecoil-serpent"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/peld/stonecoil-serpent-235p.jpg">Serpente Litoespiral
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-x ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 6,00</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-meteor-golem"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/c19/meteor-golem-218.jpg">Golem Meteórico
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-7 ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,09</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-titanoth-rex"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/titanoth-rex-174.jpg">Titanote Rex
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-7 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,75</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-hydroid-krasis"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/rna/hydroid-krasis-183.jpg">Krasis Hidroide
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-x ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 50,00</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-maraleaf-pixie"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/eld/maraleaf-pixie-196.jpg">Sílfide Marafolha
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-u ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,49</span>
+														
+													
+												</ul>
+											</div>
+										
+											<div class="deck-card-by-list">
+												<h2 class="deck-card-list__type">Feitiços (1)</h2>
+												<ul class="deck-card-list list-unstyled font-small">
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-finale-of-devastation"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/pwar/finale-of-devastation-160s.jpg">Final de Devastação
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-x ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 55,00</span>
+														
+													
+												</ul>
+											</div>
+										
+											<div class="deck-card-by-list">
+												<h2 class="deck-card-list__type">Mágicas Instantâneas (1)</h2>
+												<ul class="deck-card-list list-unstyled font-small">
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-veil-of-summer"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/m20/veil-of-summer-198.jpg">Véu do Verão
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 16,55</span>
+														
+													
+												</ul>
+											</div>
+										
+											<div class="deck-card-by-list">
+												<h2 class="deck-card-list__type">Planinautas (4)</h2>
+												<ul class="deck-card-list list-unstyled font-small">
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-kiora-behemoth-beckoner"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/pwar/kiora-behemoth-beckoner-232s★.jpg">Kiora, Invocadora de Behemoths
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-2 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-gu ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,48</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-ugin-the-ineffable"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/pwar/ugin-the-ineffable-2s★.jpg">Ugin, o Inefável
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-6 ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 7,47</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-vivien-monsters-advocate"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/vivien-monsters-advocate-175.jpg">Vivien, Protetora dos Monstros
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-3 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 69,00</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-nissa-who-shakes-the-world"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/pwar/nissa-who-shakes-the-world-169s★.jpg">Nissa, Abaladora do Mundo
+														</a>
+									    				
+								    					
+									    					<span class="card-mana-cost">
+																
+																	<i class="ms ms-3 ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+																	<i class="ms ms-g ms-cost ms-xs"></i>
+																
+								    						</span>
+														
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 30,00</span>
+														
+													
+												</ul>
+											</div>
+										
+											<div class="deck-card-by-list">
+												<h2 class="deck-card-list__type">Terrenos (24)</h2>
+												<ul class="deck-card-list list-unstyled font-small">
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">7</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-island"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/thb/island-251.jpg">Ilha
+														</a>
+									    				
+								    					
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,70</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-castle-vantress"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/eld/castle-vantress-242.jpg">Castelo de Vantreza
+														</a>
+									    				
+								    					
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 5,12</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">12</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-forest"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/thb/forest-287.jpg">Floresta
+														</a>
+									    				
+								    					
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 2,40</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-temple-of-mystery"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/m20/temple-of-mystery-255.jpg">Templo do Mistério
+														</a>
+									    				
+								    					
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 0,10</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-breeding-pool"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/rna/breeding-pool-246.jpg">Charco da Procriação
+														</a>
+									    				
+								    					
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 39,41</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-bonders-enclave"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/bonders-enclave-245.jpg">Enclave dos Vinculadores
+														</a>
+									    				
+								    					
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 9,99</span>
+														
+													
+														<li class="deck-card-list__item d-flex flex-row">
+														
+											  			<span class="card-quantity">1</span>
+											  			
+											  			<a class="see-card-image card-detail text-truncate px-1" 
+											  				href="#card-detail-modal"
+															data-toggle="modal"
+															data-cardlink="carta-fabled-passage"
+															data-cardimageurl="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/peld/fabled-passage-244p.jpg">Passagem Fabulosa
+														</a>
+									    				
+								    					
+														
+														
+															<span class="ml-auto mr-0 font-xsmall pl-2 flex-shrink-0">R$ 32,47</span>
+														
+													
+												</ul>
+											</div>
+										
+										
+										
+									</div>		
+									
+								</div>
+								<div class="col-lg-3 d-none d-lg-block text-right">
+									<img id="deck-highlighted-card" class="sticky img-fluid" src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/kinnan-bonder-prodigy-338.jpg" alt="Kinnan, Bonder Prodigy" width="275">
+									<p id="deck-highlighted-card-text"></p>
+								</div>
+							</div>
+							
+							<hr class="mb-4">
+							
+							<!-- Deck description -->
+								
+													
+							<!-- Deck stats -->
+							
+								<section class="mb-5">
+									<h3 class="section-header--title">Estatísticas do deck</h3>
+															
+									<div class="row">
+							      	<div class="col-md-6"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+							        	<canvas id="deck-colors-chart" width="520" height="260" class="chartjs-render-monitor" style="display: block; width: 520px; height: 260px;"></canvas>
+							      	</div>
+											<div class="col-md-6"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+							      		<canvas id="deck-turn-cards-chart"></canvas>
+							      	</div>
+							    </div>
+			<!-- 					    <div class="row"> -->
+			<!-- 					      	<div class="col-md-6"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div> -->
+			<!-- 					        	<canvas id="deck-types-chart" width="520" height="260" class="chartjs-render-monitor" style="display: block; width: 520px; height: 260px;"></canvas> -->
+			<!-- 					      	</div> -->
+			<!-- 				      	</div> -->
+								</section>
+							
+							<!-- Deck stats -->
+							
+							<section class="mb-5">
+								<h3 class="section-header--title">Comentários do deck</h3>
+								<!-- Community comments -->
+								<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'https://burnmana.com/mtg-decks-simic';
+this.page.identifier = '1590771030590';
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://burnmana-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+							</section>
+															
+						</div>
+					</div>
+					<!-- relatedDecksByOwner -->
+					
+					
+					<!-- relatedDecksByFormat -->
+					
+						<section class="section-container my-4">
+							<div class="section-header">
+								<h4 class="section-header--title">Decks do formato Brawl</h4>
+								<div class="section-header-action">
+									<a class="btn btn-flat text-primary m-0" href="/decks/brawl">Ver mais decks</a>
+								</div>
+							</div>
+							
+							
+							
+
+<div id="carousel-relatedDecksByFormat" class="carousel slide carousel-multi-item v-2 mb-0">
+	<div class="carousel-inner v-2" role="listbox">
+		<div class="carousel-item active">
+			
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/kinnan-bonder-prodigy-338.jpg" alt="Deck Brawl Kinnan">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Brawl Kinnan</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>renato</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/simic/1590771030590">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/thb/art/ashiok-nightmare-muse-208.jpg" alt="Deck Ashiok Nightmare Muse | Brawl deck |">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Ashiok Nightmare Muse | Brawl deck |</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>23/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>whiteravenpt</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/dimir/1590257434148">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/peld/art/torbran-thane-of-red-fell-147p.jpg" alt="Deck Brawl 05/2020">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Brawl 05/2020</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>15/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>luiz</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/mono-red/1589590109554">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/dom/art/adeliz-the-cinder-wind-190.jpg" alt="Deck Budget Adeliz historic brawl">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Budget Adeliz historic brawl</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>15/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>alfano</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/izzet/1589576524500">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+					</div><div class='carousel-item'>
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/snapdax-apex-of-the-hunt-209.jpg" alt="Deck Snapdax Brawl">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Snapdax Brawl</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>14/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>henrique</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/mardu/1589472326504">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/illuna-apex-of-wishes-190.jpg" alt="Deck Illuna">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Illuna</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>13/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>alfano</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/temur/1589413588892">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/m20/art/yarok-the-desecrated-220.jpg" alt="Deck Brawl Sultai Yarok ETB">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Brawl Sultai Yarok ETB</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>09/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>wesley</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/sultai/1588994192429">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/nethroi-apex-of-death-197.jpg" alt="Deck Nethroi, Apex of Death">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Nethroi, Apex of Death</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>05/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>gabriel</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/abzan/1588700901765">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+					</div><div class='carousel-item'>
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/nethroi-apex-of-death-197.jpg" alt="Deck Nethroi Brawl">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Nethroi Brawl</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/04/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>alfano</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/abzan/1588190593810">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+    </div>
+ 	</div>
+	<!--Controls-->
+  <div class="controls-top controls-top-floating">
+    <a class="btn btn-white btn-floating waves-effect waves-light" href="#carousel-relatedDecksByFormat" data-slide="prev">
+    	<i class="fas fa-chevron-left black-text"></i>
+   	</a>
+    <a class="btn btn-white btn-floating waves-effect waves-light" href="#carousel-relatedDecksByFormat" data-slide="next">
+    	<i class="fas fa-chevron-right black-text"></i>
+   	</a>
+  </div>
+  <!--/.Controls-->
+</div>
+						</section>
+					
+					
+					<!-- relatedDecksByTournament -->
+					
+					<!-- relatedDecksByRecent -->
+					
+						<section class="my-4">
+							<div class="section-header">
+								<h4 class="section-header--title">Decks mais recentes</h4>
+								<div class="section-header-action">
+									<a class="btn btn-flat text-primary m-0" href="/decks">Ver mais decks</a>
+								</div>
+							</div>
+							
+							
+							
+
+<div id="carousel-relatedDecksByRecent" class="carousel slide carousel-multi-item v-2 mb-0">
+	<div class="carousel-inner v-2" role="listbox">
+		<div class="carousel-item active">
+			
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/umori-the-collector-231.jpg" alt="Deck Simic Mutate">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Simic Mutate</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Standard</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>whiteravenpt</p>
+    		<p><i class="fas fa-th-list pr-2"></i>76 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/standard/simic-mutate/1590774674563">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/kinnan-bonder-prodigy-338.jpg" alt="Deck Brawl Kinnan">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Brawl Kinnan</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Brawl</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>renato</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/brawl/brawl-kinnan/1590771030590">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/thb/art/hero-of-the-nyxborn-219.jpg" alt="Deck Boros Heroic">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Boros Heroic</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Standard</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>alfano</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/standard/boros-heroic/1590771924375">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/iko/art/gyruda-doom-of-depths-221.jpg" alt="Deck Gyruda Ulamog">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Gyruda Ulamog</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Historic</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>henrique</p>
+    		<p><i class="fas fa-th-list pr-2"></i>76 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/historic/gyruda-ulamog/1590765463655">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+					</div><div class='carousel-item'>
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/jud/art/miraris-wake-139.jpg" alt="Deck Despertar do Ulamog">
+  	</div>
+	
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Despertar do Ulamog</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Historic</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>henrique</p>
+    		<p><i class="fas fa-th-list pr-2"></i>60 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/historic/despertar-do-ulamog/1590765406605">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/pwar/art/jace-wielder-of-mysteries-54s.jpg" alt="Deck Dimir">
+  	</div>
+	
+	
+		<a class="btn-floating btn-action ml-auto mr-4 white">
+			<i class="black-text fas fa-trophy"></i>
+		</a>
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Dimir</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Pioneer</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>Brunninho</p>
+    		<p><i class="fas fa-th-list pr-2"></i>95 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/pioneer/brunninho/1590722561499">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/prm/art/the-royal-scions-78854.jpg" alt="Deck Izzet">
+  	</div>
+	
+	
+		<a class="btn-floating btn-action ml-auto mr-4 white">
+			<i class="black-text fas fa-trophy"></i>
+		</a>
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Izzet</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Pioneer</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>Jbspec3</p>
+    		<p><i class="fas fa-th-list pr-2"></i>75 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/pioneer/jbspec3/1590722561497">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/akh/art/gideon-of-the-trials-14.jpg" alt="Deck Orzhov">
+  	</div>
+	
+	
+		<a class="btn-floating btn-action ml-auto mr-4 white">
+			<i class="black-text fas fa-trophy"></i>
+		</a>
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Orzhov</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Pioneer</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>Mccloudbro</p>
+    		<p><i class="fas fa-th-list pr-2"></i>95 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/pioneer/mccloudbro/1590722561495">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+					</div><div class='carousel-item'>
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/grn/art/chamber-sentry-232.jpg" alt="Deck Abzan">
+  	</div>
+	
+	
+		<a class="btn-floating btn-action ml-auto mr-4 white">
+			<i class="black-text fas fa-trophy"></i>
+		</a>
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Abzan</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Pioneer</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>Csmidy</p>
+    		<p><i class="fas fa-th-list pr-2"></i>75 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/pioneer/csmidy/1590722561493">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/akh/art/gideon-of-the-trials-14.jpg" alt="Deck Jeskai">
+  	</div>
+	
+	
+		<a class="btn-floating btn-action ml-auto mr-4 white">
+			<i class="black-text fas fa-trophy"></i>
+		</a>
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Jeskai</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Pioneer</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>Hyper</p>
+    		<p><i class="fas fa-th-list pr-2"></i>95 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/pioneer/hyper/1590722561491">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/psoi/art/altered-ego-241s.jpg" alt="Deck Non-red">
+  	</div>
+	
+	
+		<a class="btn-floating btn-action ml-auto mr-4 white">
+			<i class="black-text fas fa-trophy"></i>
+		</a>
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Non-red</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Pioneer</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>MrBrinkinMen</p>
+    		<p><i class="fas fa-th-list pr-2"></i>75 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/pioneer/mrbrinkinmen/1590722561489">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+				
+		    <div class="col-12 col-md-4 col-lg-3">
+	       	
+
+
+
+
+
+
+<div class="card deck-item h-100 btn-no-waves">
+  	<div class="view overlay">
+  		<img class="card-img-top lazy" height="186"  src="https://burnmana.com/b/images/dpx.jpg" data-src="https://d2a6pxjvsktfgo.cloudfront.net/card-images/sets/en/jou/art/eidolon-of-the-great-revel-94.jpg" alt="Deck Boros">
+  	</div>
+	
+	
+		<a class="btn-floating btn-action ml-auto mr-4 white">
+			<i class="black-text fas fa-trophy"></i>
+		</a>
+	
+	
+ 	<div class="card-body">
+    	<h4 class="card-title card-title-2x text-capitalize">Boros</h4>
+    	<hr>
+    	<div class="card-text">
+    		<p><i class="fas fa-calendar-alt pr-2"></i>29/05/2020</p>
+    		<p class="text-capitalize"><i class="fas fa-shield-alt pr-2"></i>Pioneer</p>
+    		<p class="text-truncate text-capitalize"><i class="fas fa-user pr-2"></i>Evgen_nah</p>
+    		<p><i class="fas fa-th-list pr-2"></i>75 cartas</p>
+     	</div>
+     	
+	 	<a class="stretched-link mx-auto btn btn-outline-primary btn-sm btn-rounded" 
+	 		href="/decks/pioneer/evgen_nah/1590722561487">Ver deck</a>
+  	</div>
+</div>
+		    </div>
+	    
+    </div>
+ 	</div>
+	<!--Controls-->
+  <div class="controls-top controls-top-floating">
+    <a class="btn btn-white btn-floating waves-effect waves-light" href="#carousel-relatedDecksByRecent" data-slide="prev">
+    	<i class="fas fa-chevron-left black-text"></i>
+   	</a>
+    <a class="btn btn-white btn-floating waves-effect waves-light" href="#carousel-relatedDecksByRecent" data-slide="next">
+    	<i class="fas fa-chevron-right black-text"></i>
+   	</a>
+  </div>
+  <!--/.Controls-->
+</div>
+						</section>
+					
+					
+					<section class="my-5">
+						<div class="row">
+							<div class="col-6">
+								<div class="card mb-4">
+							    	<div class="view overlay">
+							      		<img class="card-img-top lazy" data-src="https://burnmana.com/b/images/home/magic-arena-playing.jpg" alt="Magic Arena" src="https://d2a6pxjvsktfgo.cloudfront.net/b/images/dpx.jpg">
+							      		<a href="/mtg/arena">
+							        		<div class="mask rgba-white-slight"></div>
+							      		</a>
+							    	</div>
+							
+							    	<div class="card-body">
+								      	<h4 class="card-title"><i class="ss ss-fw ss-parl3 ss-common"></i> Gerencie seus decks do MTG Arena</h4>
+							    	</div>
+							  	</div>
+					  		</div>
+					  		<div class="col-6">
+								<div class="card mb-4">
+							    	<div class="view overlay">
+							      		<img class="card-img-top lazy" data-src="https://burnmana.com/b/images/home/magic-online-playing.jpg" alt="Magic Online" src="https://d2a6pxjvsktfgo.cloudfront.net/b/images/dpx.jpg">
+							      		<a href="/mtg/mol">
+							        		<div class="mask rgba-white-slight"></div>
+							      		</a>
+							    	</div>
+							
+							    	<div class="card-body">
+								      	<h4 class="card-title"><i class="ss ss-pmodo ss-common"></i> Gerencie seus decks do MTG MOL</h4>
+							    	</div>
+							  	</div>
+					  		</div>
+						</div>
+					</section>
+				</div>
+				<div class="col-xl-3">
+					<div class="sticky">
+						<div class="ad-container ad-container-vertical">
+	<ins class="adsbygoogle adunit adunit-side"
+	     style="display:block"
+	     data-ad-client="ca-pub-2584662991254321"
+	     data-ad-slot="1826730877"
+	     data-ad-format="vertical"
+	     data-full-width-responsive="false"></ins>
+	<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+	<div class="container-fluid">
+		<hr>
+		
+			<div class="ad-container">
+<ins class="adsbygoogle adunit adunit-bottom"
+     data-ad-client="ca-pub-2584662991254321"
+     data-ad-slot="2759996023"
+     data-ad-format="auto"
+     data-full-width-responsive="false"></ins>
+	<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+			<hr>
+		
+		<div class="footer-inner">
+			<div class="footer-middle">
+				<div class="row">
+					<div class="col-lg-3 f-col mt-20">
+						<div class="footer-static-block">
+							<span class="opener plus"></span>
+							<p class="lead footer-heading font-weight-bold text-uppercase mt-3 mb-4">Ajuda</p>
+							<ul class="footer-block-contant link list-unstyled">
+								<li><a class="footer-link black-text"
+									href="/contato">Fale com a gente</a></li>
+								<li><a class="footer-link black-text"
+									href="/sobre">Quem somos nós</a></li>
+								<li><a class="footer-link black-text"
+									href="/faq">Perguntas frequentes</a></li>
+								<li><a class="footer-link black-text"
+									href="/formas-de-pagamento">Formas de
+										pagamento</a></li>
+								<li><a class="footer-link black-text"
+									href="/usuario/esqueci-minha-senha?source=default">Esqueceu
+										sua senha?</a></li>
+								<li><a class="footer-link black-text"
+									href="/termos-de-servico">Termos de
+										serviço</a></li>
+								<li><a class="footer-link black-text"
+									href="/politicas-de-privacidade">Políticas
+										de privacidade</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 f-col mt-20">
+						<div class="footer-static-block">
+							<span class="opener plus"></span>
+							<p class="lead footer-heading font-weight-bold text-uppercase mt-3 mb-4">Orientações</p>
+							<ul class="footer-block-contant link list-unstyled">
+								<li><a class="footer-link black-text" href="/como-comprar-cartas-magic-the-gathering"> Como comprar</a></li>
+								<li><a class="footer-link black-text" href="/curadoria-premium-cartas-magic-the-gathering"> Usar a Curadoria</a></li>
+								<li><a class="footer-link black-text" href="/venda-direta-cartas-magic-the-gathering"> Vender minhas cartas</a></li>
+								<li><a class="footer-link black-text" href="/informacoes-de-entrega"> Informações sobre entrega</a></li>
+								<li><a class="footer-link black-text" href="/devolucao-de-cartas">Devoluções</a></li>
+								<li><a class="footer-link black-text" href="/condicoes-da-carta">Como classificamos uma carta</a></li>
+								<li><a class="footer-link black-text" href="/tarifas-e-precos">Tarifas e Preços</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 f-col mt-20">
+						<div class="footer-static-block">
+							<span class="opener plus"></span>
+							<p
+								class="lead footer-heading font-weight-bold text-uppercase mt-3 mb-4">Conteúdo</p>
+							<ul class="footer-block-contant link list-unstyled">
+								<li><a class="footer-link black-text"
+									href="/mtg">O que é Magic
+										the Gathering?</a></li>
+								<li><a class="footer-link black-text"
+									href="/mtg/arena">O
+										que é o Magic Arena?</a></li>
+								<li><a class="footer-link black-text"
+									href="/mtg/mol">O
+										que é o MOL?</a></li>
+								<li><a class="footer-link black-text"
+									href="/mtg/como-identificar-cartas-proxy">Como
+										identifico cartas proxy?</a></li>
+								<li><a class="footer-link black-text"
+									href="/reviews">Depoimentos de usuários</a></li>
+								<li><a class="footer-link black-text"
+									href="/expansoes-magic-the-gathering">Expansões</a></li>
+								<li><a class="footer-link black-text"
+									href="/cartas-magic-the-gathering">Cartas</a></li>
+								<li><a class="footer-link black-text"
+									href="/decks">Decks</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 f-col mt-20">
+						<div class="footer-static-block">
+							<span class="opener plus"></span>
+							<p class="lead footer-heading font-weight-bold text-uppercase mt-3 mb-4">Siga
+								a gente</p>
+							<ul class="footer-block-contant link list-unstyled">
+								<li><a class="footer-link black-text"
+									href="https://www.facebook.com/BurnManaBrasil">Facebook</a></li>
+								<li><a class="footer-link black-text"
+									href="https://twitter.com/burnmana">Twitter</a></li>
+								<li><a class="footer-link black-text"
+									href="https://instagram.com/burnmana">Instagram</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom mt-20 py-2">
+				<div class="row">
+					<div class="col-12 ">
+						<p class="text-center">
+							<i class="fab fa-wizards-of-the-coast fa-2x"></i> Magic the
+							Gathering e seus direitos autorais são da Wizards of the Coast
+							Inc, uma subsidiária da Hasbro Inc, que tem todos os direitos
+							reservados. <br>O site BurnMana não é afiliado, endossado ou
+							patrocinado pela Wizards of the Coast.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright text-center py-2">
+			<div class="col-lg-12">
+				© 2020 BurnMana.com feito com <i class="fas fa-heart"
+					style="color: red;"></i> em Petrópolis, Rio de Janeiro e Lisboa
+			</div>
+		</div>
+	</div>
+
+</footer>
+	</main>
+
+	
+ 	
+  <div class="modal fade" id="embed-modal" tabindex="-1" role="dialog" aria-labelledby="embedModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    	<div class="modal-content">
+       	<div class="row">
+         	<div class="col-lg-5">
+         		<div class="p-2 z-depth-1">
+            	<iframe id="embedPreview" width="300" height="600" src="/decks/embed/brawl/simic/1590771030590" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+         		</div>
+         	</div>
+         	<div class="col-lg-7">
+         		<div class="modal-header">
+          		<h4 id="embedModalLabel">Adicione ao seu site</h4>
+          		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+         		</div> 
+	      		<div class="modal-body py-0 pl-0">
+	      			<!-- Vertical Steppers -->
+					    <ul class="stepper stepper-vertical mt-0 pl-0 py-0">
+								<!-- Second Step -->
+					      <li class="active">
+					        <!--Section Title -->
+					        <a href="#!">
+					          <span class="circle">1</span>
+					          <span class="label">Escolha o tema</span>
+					        </a>
+					        <!-- Section Description -->
+					        <div class="step-content py-1 px-2">
+					        	<!-- Default inline 1-->
+										<div class="custom-control custom-radio custom-control-inline">
+										  <input type="radio" class="custom-control-input" id="defaultInline1" name="embed-theme" value="light-theme" checked="checked">
+										  <label class="custom-control-label" for="defaultInline1">Light</label>
+										</div>
+										
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+										  <input type="radio" class="custom-control-input" id="defaultInline2" name="embed-theme" value="dark-theme">
+										  <label class="custom-control-label" for="defaultInline2">Dark</label>
+										</div>
+					        </div>
+				        </li>
+					      <!-- First Step -->
+					      <li class="active">
+					        <a href="#!">
+					          <span class="circle">2</span>
+					          <span class="label">Copie o código abaixo</span>
+					        </a>
+					        <div class="step-content py-1 px-2">
+					        	<div class="p-4 grey lighten-3 scrollable">					        	
+					          	<p id="embedCopiedCode" class="m-0">&lt;iframe width=&#039;300&#039; height=&#039;600&#039; src=&#039;https://burnmana.com/decks/embed/brawl/simic/1590771030590&#039; frameborder=&#039;0&#039; allow=&#039;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#039; allowfullscreen&gt;&lt;/iframe&gt;</p>
+					        	</div>
+					        </div>
+					      </li>
+					
+					      <!-- Second Step -->
+					      <li class="active">
+					        <!--Section Title -->
+					        <a href="#!">
+					          <span class="circle">3</span>
+					          <span class="label">Cole no seu site</span>
+					        </a>
+					        <!-- Section Description -->
+					        <div class="step-content py-1 px-2">
+					          <div class="p-4 grey lighten-3 scrollable">
+											<p class="m-0">&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;!-- Insira o código onde deseja que apareça o deck--&gt;&lt;/body&gt;&lt;/html&gt;</p>
+										</div>
+									</div>
+					      </li>
+					    </ul>
+							<!-- /.Vertical Steppers -->
+           	</div>
+       		</div>
+	      </div>
+      </div>
+    </div>
+  </div>
+	
+
+	<!-- Modal -->
+<div class="modal fade" id="deckcombat-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    	<div class="modal-header black">
+        <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body b-0 p-0">
+     		<iframe frameBorder="0" height="620" data-content="/deckcombat" class="w-100"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+	<div class="modal fade" id="should-logged-modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<p class="lead">Faça seu login para acessar este conteúdo.</p>
+						<a id="btn-login-from" class="btn btn-dark" href="/login-from?source="><i class="fas fa-user pr-2"></i>Logar, ou criar conta</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal fade" id="share-content-modal" tabindex="-1" role="dialog" aria-labelledby="share-content-modal" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="col-9">
+					<h6 class="modal-title">Compartilhar</h6>
+				</div>
+			</div>
+			<div class="modal-body">
+				<a href="#" id="btn-share-facebook" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-facebook-f white-text"></i> Facebook</a>
+				<a href="#" id="btn-share-twitter" class="btn btn-info" target="_blank" rel="noopener"><i class="fab fa-twitter white-text"></i> Twitter</a>
+				<a href="#" id="btn-share-whatsapp" class="btn btn-success" target="_blank" rel="noopener"><i class="fab fa-whatsapp white-text"></i> WhatsApp</a>
+				
+				<button id="decks-link-button" type="button" class="btn btn-outline-primary waves-effect waves-light" 
+					data-deckslink="https://burnmana.com/decks/usuario//" 
+					title="Copiar link dos decks"
+					onclick="copyCurrentPageLinkToClipboard()"><i class="fas fa-link"></i> Copiar link</button>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-link" data-dismiss="modal">Fechar</button>
+	      	</div>
+		</div>
+	</div>
+</div>
+
+	<div class="modal fade" id="card-detail-modal" tabindex="-1" role="dialog" aria-labelledby="card-detail" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body" style="text-align: center;">
+				<img id="card-detail-image" class="fluid" width="320px">
+			</div>
+			<div class="modal-footer">
+        <button type="button" class="btn btn-link" data-dismiss="modal">Fechar</button>
+				<a id="card-detail-link" class="btn btn-dark btn-md">Ver ofertas</a>
+     	</div>
+		</div>
+	</div>
+</div>
+	<script>
+	var APP_CONTEXT = '/';
+</script>
+<!-- <script src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script> -->
+<script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/popper.js/dist/umd/popper.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/external/mdb.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/bootbox/dist/bootbox.min.js"></script>
+<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/external/lazyload.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.1/typeahead.bundle.min.js"></script>
+
+<script>
+	function onLoad() {
+    	gapi.load('auth2', function() {
+      		gapi.auth2.init();
+    	});
+  	}
+</script>
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+
+
+	
+	
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/commons-base-1590721583449.js"></script>
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/commons-1590721583449.js"></script>
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/core/message-management-1590721583449.js"></script>
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/store/orders/orders-manager-1590721583449.js"></script>
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/store/search-v2-1590721583449.js"></script>
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/store/shopcart-1590721583449.js"></script>
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/core/auth-1590721583449.js"></script>
+		<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/decks/deck-manager-1590721583449.js"></script>
+	
+
+	<script id="dsq-count-scr" src="//burnmana-1.disqus.com/count.js" async></script>
+	
+	<script type="text/javascript">
+		// Deck stats
+		var totalWhiteCards = "0";
+		var totalBlueCards = "2";
+		var totalBlackCards = "0";
+		var totalRedCards = "0";
+		var totalGreenCards = "19";
+		var totalMulticolorCards = "6";
+		var turnCosts = "[0:25, 1:2, 2:10, 3:6, 4:5, 5:5, 6:1, 7:3, 8:1, 9:2]";
+
+		var deckCode = '1590771030590';
+		var deckOwnerCode = '1562372643778';
+		
+		$(function () {
+			
+			$(':radio[name="embed-theme"]').change(function() {
+				  var selectedTheme = $(this).filter(':checked').val();
+					var embedSrc = $('#embedPreview').attr('src');
+					var href = embedSrc.split('?')[0];
+					
+					href += '?theme='+selectedTheme
+					$('#embedPreview').attr('src', href);
+					
+					var embedTextElement = $('#embedPreview').get(0);
+					$('#embedCopiedCode').text(embedTextElement.outerHTML);
+			});
+			
+			var $deckModalTrigger = $('#deck-gameplay');
+			if($deckModalTrigger){
+				$deckModalTrigger.on('click', function (e) {
+				  e.preventDefault();
+				  $("#player")[0].src += "?autoplay=1";
+				  $('#player').show();
+				  $('#video-cover').hide();
+				})
+				$('#deck-gameplay-modal').on('hidden.bs.modal', function (e) {
+				  $('#deck-gameplay-modal iframe').attr("src", $("#deck-gameplay-modal iframe").attr("src"));
+				});
+			}
+		});
+	</script>
+	
+	
+		
+		
+			<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/decks/deck-1590721583449.js"></script>
+			<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/decks/deck-stats-1590721583449.js"></script>
+			<script src="https://d2a6pxjvsktfgo.cloudfront.net/b/js/internal/core/favorites-1590721583449.js"></script>
+		
+	
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam.nr-data.net","licenseKey":"NRJS-c5b172d611f93b8c7b3","agent":"","beacon":"bam.nr-data.net","applicationTime":148,"applicationID":"482683155","transactionName":"Y10DYEYEVkdRAUAIVloXMkRGDFZTcw1aFUtbVA1RRkpcUVMJR05CUlcTWVURdlVdB0lOQlBdAl94DFZfTU1PBVxXUyJbUABFFBglcTUQ","queueTime":0}</script></body>
+</html>	

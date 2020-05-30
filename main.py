@@ -1,18 +1,19 @@
 # Pega a url
-from modulos import extraction, pdf, persistence, request
+from modulos import extractionManager, pdf, persistence, request
 from ast import literal_eval
 
-#url = input("Digite a url: ")
-url = "https://burnmana.com/decks/brawl/brawl-kinnan/1590771030590"
+url = input("Digite a url: ")
 persistence = persistence.persistence()
 request = request.request()
-extract = extraction.extraction("oi")
+extractionManager = extractionManager.extractionManager()
 pdf = pdf.pdf()
 
 
 #Pega dados essenciais da URL
 persistence.processeUrl(url)
 
+#selecionar o extractor / scraper
+scraper = extractionManager.selectExtractor(persistence.site)
 
 #Verifica se existe um diretorio proprio para o deck
 if not persistence.it_is_ok(persistence.pastaDeck):
@@ -33,9 +34,9 @@ else:
 #Cataloga o Deck
 if(not persistence.processOk("deck")):
     #Preparando para trabalhar com o deck
-    extract.load(html, persistence.nameDeck, persistence.pastaDeck)
+    scraper.load(html, persistence.nameDeck, persistence.pastaDeck)
     #Cataloga o Deck
-    deck = extract.catalogarDeck()
+    deck = scraper.catalogarDeck()
     #Persiste o Deck 
     persistence.persistFile(str(deck), "deck")
 else:

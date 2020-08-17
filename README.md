@@ -1,6 +1,4 @@
-# proxyCardMTG
-
-Para iniciar basta executar o init.sh
+A partir de uma url para um deck será criado um pdf pronto para impressão das proxy de MTG
 
 ## Como fazer
 
@@ -8,7 +6,9 @@ Ao executar o comando
 
 > ./init.sh
 
-será aberto o programa dentro de um ambiente virtual, e será requisitado uma url do site liga magic ou burn mana como por exemplo
+Será aberto o programa dentro de um ambiente virtual.
+Será isntalada todas as depêndencias
+Será requisitado uma url do site liga magic ou burn mana como por exemplo
 
 >https://www.ligamagic.com.br/?view=dks/deck&id=872745
 

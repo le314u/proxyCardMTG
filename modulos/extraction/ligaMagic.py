@@ -4,7 +4,7 @@ import lxml #Biblioteca parser(analisador) HTML
 import os #Biblioteca para manipular diretorios
 
     
-class extractionLigaMagic:
+class LigaMagic:
     def __init__(self, verbose=False):
         self.Deck = {}
         self.html = None

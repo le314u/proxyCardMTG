@@ -1,15 +1,15 @@
-from modulos import extractionBurnMana, extractionLigaMagic
+from . import burnMana, ligaMagic
 
-class extractionManager:
+class Manager:
     def __init__(self, verbose=False):
         self.verbose = verbose
         pass
 
     def selectExtractor(self, urlBase):
         if (self.isLigaMagic(urlBase)):
-            extract = extractionLigaMagic.extractionLigaMagic(self.verbose)
+            extract = ligaMagic.LigaMagic(self.verbose)
         elif (self.isBurnMana):
-            extract = extractionBurnMana.extractionBurnMana(self.verbose)
+            extract = burnMana.BurnMana(self.verbose)
         return extract
     
     def isLigaMagic(self, urlBase):

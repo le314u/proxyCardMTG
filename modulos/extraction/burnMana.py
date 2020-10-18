@@ -5,7 +5,7 @@ import os #Biblioteca para manipular diretorios
 import re #Biblioteca para manipula expressoes regulares
 from unidecode import unidecode # Biblioteca para tirar os acentos 
 
-class extractionBurnMana:
+class BurnMana:
     def __init__(self, verbose=False):
         self.Deck = {}
         self.html = None

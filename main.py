@@ -1,11 +1,12 @@
-# Pega a url
-from modulos import extractionManager, pdf, persistence, request
+from modulos.extraction import manager
+from modulos import pdf, persistence, request
 from ast import literal_eval
+import json
 
 url = input("Digite a url: ")
 persistence = persistence.persistence()
 request = request.request()
-extractionManager = extractionManager.extractionManager()
+extractionManager = manager.Manager()
 pdf = pdf.pdf()
 
 
@@ -57,18 +58,34 @@ if(not persistence.processOk("img") or persistence.persistDir(persistence.pastaD
     persistence.persistFile(urlCards, "img")
 
 #Cria o Pdf
-if(not persistence.processOk("pdf")):
+if(not persistence.processOk("pdf") or True):
     #Preparando para trabalhar com o deck
 
-    #Cria o canvas do PDF
-    pdf.makePdf(persistence.pastaDeck+"/"+persistence.nameDeck+".pdf")
-
-    #Preenche o canvas com as imagens do Deck
-    for type in deck:
-        for card in deck[type]:
-            for i in range(card['qtd']):
-                pdf.printCard(persistence.pastaDeck+"/imgs/"+card['img']+'.jpg')
-    pdf.close()
-
-
-
+    def myDeck():
+        #Cria o canvas do PDF
+        pdf.makePdf(persistence.pastaDeck+"/"+persistence.nameDeck+".pdf")
+        #Preenche o canvas com as imagens do Deck
+        for type in deck:
+            for card in deck[type]:
+                for i in range(card['qtd']):
+                    pdf.printCard(persistence.pastaDeck+"/imgs/"+card['img']+'.jpg')
+        pdf.close()
+    
+    def myDrawns():
+        #Cria lista
+        l=[]
+        for type in deck:
+            for card in deck[type]:
+                for i in range(int(card['qtd'])):
+                    l.append(card)
+        import random
+        random.shuffle(l)
+    
+        #Cria o canvas do PDF
+        pdf.makePdf(persistence.pastaDeck+"/myDrawns.pdf")
+        for card in l:
+            pdf.printCard(persistence.pastaDeck+"/imgs/"+card['img']+'.jpg')
+        pdf.close()
+    
+    myDrawns()
+    myDeck()

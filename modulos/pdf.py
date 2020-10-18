@@ -3,14 +3,26 @@
 from reportlab.pdfgen import canvas #Biblioteca para gerar pdf
 from reportlab.lib.utils import ImageReader #Biblioteca para inserir Imagem no pdf
 
+
 class pdf:
     def __init__(self):
         self.file = None
         self.size=(841.8897637795277, 595.2755905511812)
         self.idCard = 0
         self.pg = 0
-        
+    
+    def text(self, text):
+        ''' Escreve um texto na pagina'''
+        self.file.drawString(420,585,text)
+
+    def newPage(self):
+        '''Cria uma nova Pagina'''
+        self.file.showPage()
+        self.pg = self.pg + 1
+        self.idCard = 0
+
     def makePdf(self, path):
+        '''Inicia o Arquivo pdf'''
         self.file = canvas.Canvas(path,pagesize=self.size)
 
     def close(self):
@@ -37,38 +49,40 @@ class pdf:
         #Tamanho da pagina
         larguraPagina = self.size[0]
         alturaPagina = self.size[1]
+        
         #Margem
-        margE = (larguraPagina - (larguraCarta*4) ) / 5
-        margB = (alturaPagina - (alturaCarta*2) ) / 3
+        margH = (larguraPagina - (larguraCarta*4) ) / 5
+        margV = (alturaPagina - (alturaCarta*2) ) / 3
 
         #Deslocamento
-        if ( (self.idCard%4) == 0):
-            offSetL = (margE +larguraCarta) * (self.idCard%4)
+        if ( (self.idCard%4) == 0): # Coluna
+            offSetH = (margH +larguraCarta) * (self.idCard%4)
         else:
             #Espaço entre Cartas
-            spaceInterL = margE #identico a margem Esquerda
-            offSetL = (spaceInterL +larguraCarta) * (self.idCard%4)
+            spaceInterH = margH #identico a margem Esquerda
+            offSetH = (spaceInterH +larguraCarta) * (self.idCard%4)
 
-        if (((self.idCard%8)-4) >= 0):
-            #Espaço entre Cartas
-            spaceInterW = margB #identico a margem Base
-            offSetW = spaceInterW + alturaCarta
-        else:
+        if (((self.idCard%8)-4) >= 0): #Linha
             offSetW = 0
+        else:
+            #Espaço entre Cartas
+            spaceInterV = margV #identico a margem Base
+            offSetW = spaceInterV + alturaCarta
+            
 
         #Quinas da carta
-        x1 = margE + offSetL
+        x1 = margH + offSetH
         x2 = x1 + larguraCarta
-        y1 = margB + offSetW
+        y1 = margV + offSetW
         y2 = y1 + alturaCarta
         
         #Imagem
         image = ImageReader(pathImage)
 
         #Desenha a imagem
-        self.file.drawImage(image,x1,y1, width=larguraCarta,height=alturaCarta)
-
+        self.file.drawImage(image, x1, y1, width=larguraCarta, height=alturaCarta)
         self.file.setStrokeColorRGB(0,0,0) 
+
         #Traça a silhueta
         self.file.line( x1,y1,x2,y1)#Base
         self.file.line( x2,y1,x2,y2)#Borda Direita

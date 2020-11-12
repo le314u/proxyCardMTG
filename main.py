@@ -38,8 +38,10 @@ if(not persistence.processOk("deck")):
     scraper.load(html, persistence.nameDeck, persistence.pastaDeck)
     #Cataloga o Deck
     deck = scraper.catalogarDeck()
+    #Formata o Deck
+    prettyDeck = str( json.dumps(deck, indent=4, sort_keys=False) )
     #Persiste o Deck 
-    persistence.persistFile(str(deck), "deck")
+    persistence.persistFile(str(prettyDeck), "deck")
 else:
     #Le o arquivo de catalogo do Deck
     deck = literal_eval(persistence.load("deck"))

@@ -28,7 +28,14 @@ class Main:
             self.myDrawns()
 
         elif(arg == "Old"):
-            pass
+            lista = self.persistence.listDeck()
+            arg = self.menu.selection( lista )
+            self.persistence.nameDeck = arg
+            self.persistence.pastaDeck = "Deck/deck_"+arg
+            self.deck = literal_eval(self.persistence.load("deck"))
+            self.getImg()
+            self.myDeck()
+            self.myDrawns()
 
     def setUrl(self, url):
         """ Seta a URL """

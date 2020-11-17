@@ -64,3 +64,23 @@ class persistence:
             content = content + line
         file.close()
         return content
+    
+    def listDeck(self):
+        '''Dicionario com todos os Decks'''
+        lista = os.listdir("Deck/")
+        lista.remove("img")
+        dictDeck = {}
+        for deck in lista:
+            key = deck[5:]
+            dictDeck[key]=deck
+        return dictDeck
+    
+    def load(self, extensao):
+        '''Abre um arquivo para leitura'''
+        path_file = self.pastaDeck+"/"+self.nameDeck+"."+extensao
+        file = open(path_file, 'r')
+        content = ''
+        for line in file:
+            content = content + line
+        file.close()
+        return content

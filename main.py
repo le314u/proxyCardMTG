@@ -1,93 +1,119 @@
 from modulos.extraction import manager
-from modulos import pdf, persistence, request
+from modulos import pdf, persistence, request, menu
 from ast import literal_eval
 import json
+import random
 
-url = input("Digite a url: ")
-persistence = persistence.persistence()
-request = request.request()
-extractionManager = manager.Manager()
-pdf = pdf.pdf()
+class Main:
+    def __init__(self):
+        # Import de modulos
+        self.menu = menu.Menu()
+        self.persistence = persistence.persistence()
+        self.request = request.request()
+        self.extractionManager = manager.Manager()
+        self.pdf = pdf.pdf()
+        arg = self.menu.selection({
+            "New":"Cria um novo deck",
+            "Old":"Cria um deck ja existente"
+        })
+
+        if(arg == "New"):
+            url = input("Digite a url: ")
+            self.setUrl(url)
+            self.dirDeck()
+            self.requestUrl(url)
+            self.makeDeck()
+            self.getImg()
+            self.myDeck()
+            self.myDrawns()
+
+        elif(arg == "Old"):
+            pass
+
+    def setUrl(self, url):
+        """ Seta a URL """
+        #Pega dados essenciais da URL
+        self.persistence.processeUrl(url)
+        #selecionar o extractor / scraper
+        self.scraper = self.extractionManager.selectExtractor(self.persistence.site)
+
+    def dirDeck(self):
+        """ Verifica se existe um diretorio proprio para o deck """
+        if not self.persistence.it_is_ok(self.persistence.pastaDeck):
+            #Cria o diretorio que ficara todos os arquivos do deck
+            if(not self.persistence.persistDir(self.persistence.pastaDeck)):
+                print("Erro ao criar Diretorio")
+
+    def requestUrl(self, url):
+        """ Request da Pagina """
+        if(not self.persistence.processOk("html")):
+            #Faz Download da pagina 
+            self.html = self.request.downloadHTML(url)
+            #Persiste a pagina 
+            self.persistence.persistFile(self.html, "html")
+        else:
+            #Le o html do arquivo
+            self.html = self.persistence.load("html")
+
+    def makeDeck(self):
+        """ Cataloga o Deck """
+        if(not self.persistence.processOk("deck")):
+            #Preparando para trabalhar com o deck
+            self.scraper.load(self.html, self.persistence.nameDeck, self.persistence.pastaDeck)
+            #Cataloga o Deck
+            self.deck = self.scraper.catalogarDeck()
+            #Formata o Deck
+            prettyDeck = str( json.dumps(self.deck, indent=4, sort_keys=False) )
+            #Persiste o Deck 
+            self.persistence.persistFile( prettyDeck, "deck")
+        else:
+            #Le o arquivo de catalogo do Deck
+            self.deck = literal_eval(self.persistence.load("deck"))
+
+    def getImg(self):
+        """ Faz Download das Imagens """
+        if(not self.persistence.processOk("img")):
+            listUrl = ''
+            #Preparando para trabalhar com o deck
+            print("Cards:")
+            for type in self.deck:
+                for card in self.deck[type]:
+                    print(str(card["qtd"])+"\tx\t"+card['name'])
+                    listUrl = listUrl + card['url']+'\n'
+                    #Faz Download da imagem
+                    url = "https://"+card['url']
+                    name = "Deck/img/"+card['img']+'.jpg'
+                    #Verifica se a imagem ja existe
+                    if(not self.persistence.it_is_ok(name)):
+                        self.request.downloadIMG(url, name)
+            self.persistence.persistFile(listUrl, "img")
 
 
-#Pega dados essenciais da URL
-persistence.processeUrl(url)
-
-#selecionar o extractor / scraper
-scraper = extractionManager.selectExtractor(persistence.site)
-
-#Verifica se existe um diretorio proprio para o deck
-if not persistence.it_is_ok(persistence.pastaDeck):
-    #Cria o diretorio que ficara todos os arquivos do deck
-    if(not persistence.persistDir(persistence.pastaDeck)):
-        print("Erro ao criar Diretorio")
-
-#Request da Pagina
-if(not persistence.processOk("html")):
-    #Faz Download da pagina 
-    html = request.downloadHTML(url)
-    #Persiste a pagina 
-    persistence.persistFile(html, "html")
-else:
-    #Le o html do arquivo
-    html = persistence.load("html")
-
-#Cataloga o Deck
-if(not persistence.processOk("deck")):
-    #Preparando para trabalhar com o deck
-    scraper.load(html, persistence.nameDeck, persistence.pastaDeck)
-    #Cataloga o Deck
-    deck = scraper.catalogarDeck()
-    #Formata o Deck
-    prettyDeck = str( json.dumps(deck, indent=4, sort_keys=False) )
-    #Persiste o Deck 
-    persistence.persistFile(str(prettyDeck), "deck")
-else:
-    #Le o arquivo de catalogo do Deck
-    deck = literal_eval(persistence.load("deck"))
-
-#Faz Download das Imagens
-if(not persistence.processOk("img") or persistence.persistDir(persistence.pastaDeck+"/imgs") ):
-    #Cria uma pasta para persistir as imagens
-    persistence.persistDir(persistence.pastaDeck+"/imgs/")
-    urlCards = ''
-    #Preparando para trabalhar com o deck
-    for type in deck:
-        for card in deck[type]:
-            urlCards = urlCards + card['url']+'\n'
-            #Faz Download da imagem
-            request.downloadIMG("https://"+card['url'], persistence.pastaDeck+"/imgs/"+card['img']+'.jpg')
-    persistence.persistFile(urlCards, "img")
-
-#Cria o Pdf
-if(not persistence.processOk("pdf") or True):
-    #Preparando para trabalhar com o deck
-
-    def myDeck():
+    def myDeck(self):
         #Cria o canvas do PDF
-        pdf.makePdf(persistence.pastaDeck+"/"+persistence.nameDeck+".pdf")
+        self.pdf.makePdf(self.persistence.pastaDeck+"/"+self.persistence.nameDeck+".pdf")
         #Preenche o canvas com as imagens do Deck
-        for type in deck:
-            for card in deck[type]:
+        for type in self.deck:
+            for card in self.deck[type]:
                 for i in range(card['qtd']):
-                    pdf.printCard(persistence.pastaDeck+"/imgs/"+card['img']+'.jpg')
-        pdf.close()
+                    self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
+        self.pdf.close()
     
-    def myDrawns():
+    def myDrawns(self):
         #Cria lista
         l=[]
-        for type in deck:
-            for card in deck[type]:
+        for type in self.deck:
+            for card in self.deck[type]:
                 for i in range(int(card['qtd'])):
                     l.append(card)
-        import random
         random.shuffle(l)
     
         #Cria o canvas do PDF
-        pdf.makePdf(persistence.pastaDeck+"/myDrawns.pdf")
+        self.pdf.makePdf(self.persistence.pastaDeck+"/myDrawns.pdf")
         for card in l:
-            pdf.printCard(persistence.pastaDeck+"/imgs/"+card['img']+'.jpg')
-        pdf.close()
-    
-    myDrawns()
-    myDeck()
+            self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
+        self.pdf.close()
+
+
+
+Main()

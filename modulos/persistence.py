@@ -10,13 +10,18 @@ class persistence:
         self.nameDeck = ''
         self.pastaDeck = ''
         self.site = ''
+        try:
+            self.persistDir("Deck")
+            self.persistDir("Deck/img")
+        except:
+            pass
         
 
     def processeUrl(self, url):
         '''Define pasta onde ira persistir as imagens do deck'''
         self.url = url
         self.nameDeck = url.split("/")[-1].split("=")[-1]
-        self.pastaDeck = "deck_"+self.nameDeck
+        self.pastaDeck = "Deck/deck_"+self.nameDeck
         self.site = urlparse(url).netloc
         return (self.nameDeck, self.pastaDeck, self.site, self.url)
     

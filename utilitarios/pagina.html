@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilitarios Liga Magic</title>
+    <script>
+        function getOrder(){
+            function linhaValid(linha){
+                return linha.getElementsByTagName("td").length == 4;
+            }
+            function qtd(linha){
+                return linha.getElementsByTagName("td")[0].innerText;
+            }
+            function valor(linha){
+                return linha.getElementsByTagName("td")[3].innerText.replace(',','.');
+            }
+            function nome(linha){
+                return linha.getElementsByTagName("td")[1].innerText;
+            }
+            function main(){
+                let Deck = document.getElementsByClassName("pdeck-block")[0];
+                let tbody = Deck.getElementsByTagName("tbody")[0];
+                let linhas = tbody.getElementsByTagName("tr");
+                let cards = [];
+                for (let linha of linhas){
+                    if(linhaValid(linha)){
+                        cards.push([valor(linha),nome(linha)]);
+                    }
+                }
+                function comparar(a, b) {
+                    let newA = parseFloat(a[0]);
+                    let newB = parseFloat(b[0]);
+                    if(newA < newB) {
+                        return -1;
+                    }
+                    if(newA > newB) {
+                        return 1;
+                    }
+                    return 0;
+                }
+                function copyList(newString){
+                    let inputTest = document.createElement("textarea");
+                    inputTest.value = newString.toString();
+                    document.body.appendChild(inputTest);
+                    inputTest.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(inputTest);
+                }
+                cards.sort(comparar);
+                let newString = "";
+                for(let card of cards){
+                    newString = newString + card[0] + " " + card[1] + "\n";
+                }
+                copyList(newString);
+                return newString;
+            }
+            main();
+        }
+
+        function newList(){
+            let listaAll = document.getElementById('listaAll').value.split(/\n/)
+            let listaOff = document.getElementById('listaOff').value.split(/\n/)
+            let listaNew = [];
+            listaAll.forEach(item => {
+                let newItem = item
+                newItem = newItem.replace(/[0-9]+(.?[0-9]+)+ /, "");
+                if((listaOff.indexOf(newItem) == -1) ){
+                    listaNew.push( "1 "+newItem );
+                }
+            });
+            let auxStr = ""
+            listaNew.forEach( item=>{ auxStr=  auxStr + "\n" + item} )
+            copy(auxStr)
+            return listaNew
+        }
+        
+        function copy(string){
+            let inputTest = document.createElement("textarea");
+            inputTest.value = string;
+            //Anexa o elemento ao body
+            document.body.appendChild(inputTest);
+            //seleciona todo o texto do elemento
+            inputTest.select();
+            //executa o comando copy
+            //aqui é feito o ato de copiar para a area de trabalho com base na seleção
+            document.execCommand('copy');
+            //remove o elemento
+            document.body.removeChild(inputTest);
+        }
+
+        
+
+
+    </script>
+</head>
+<body>
+    <textarea id="listaAll" type="text">All</textarea>
+    <textarea id="listaOff" type="text">Off</textarea>
+    <input id="copyJs" type="button" value="Copy code js" onclick="copy(getOrder.toString()+'\ngetOrder();')">
+    <input id="newList" type="button" value="Nova lista" onclick="newList()">
+</body>
+</html>

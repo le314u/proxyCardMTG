@@ -2,15 +2,47 @@
 
 from reportlab.pdfgen import canvas #Biblioteca para gerar pdf
 from reportlab.lib.utils import ImageReader #Biblioteca para inserir Imagem no pdf
-
+import math
 
 class pdf:
+
     def __init__(self):
         self.file = None
-        self.size=(841.8897637795277, 595.2755905511812)
         self.idCard = 0
         self.pg = 0
+        self.conf = {
+            "size":(841.8897637795277, 595.2755905511812),
+            "larguraCarta" : 0,
+            "alturaCarta" : 0,
+            "perLine": 0,
+            "perCollum": 0
+        }
+        self.setConf()
+
+    def setConf(self):
+        '''Define as configurações de impressão'''
     
+        
+        larguraPagina =841.8897637795277
+        alturaPagina = 595.2755905511812
+        larguraCarta = 181.41720855608912 #6.4/0.0352778
+        alturaCarta = 249.44866176462256  #8.8/0.0352778
+        size = (larguraPagina, alturaPagina)
+        perLine = math.floor(larguraPagina/larguraCarta)
+        perCollum = math.floor(alturaPagina/alturaCarta)
+        margH = (larguraPagina - (larguraCarta*perLine) ) / (perLine+1)
+        margV = (alturaPagina - (alturaCarta*perCollum) ) / (perCollum+1)
+
+        self.conf = {
+            "size":size,
+            "larguraCarta":larguraCarta,
+            "alturaCarta":alturaCarta,
+            "perLine":perLine,
+            "perCollum":perCollum,
+            "margH":margH,
+            "margV":margV
+        }
+
     def text(self, text):
         ''' Escreve um texto na pagina'''
         self.file.drawString(420,585,text)
@@ -23,7 +55,7 @@ class pdf:
 
     def makePdf(self, path):
         '''Inicia o Arquivo pdf'''
-        self.file = canvas.Canvas(path,pagesize=self.size)
+        self.file = canvas.Canvas(path,pagesize=self.conf['size'])
 
     def close(self):
         '''Fecha o Arquivo PDF'''
@@ -32,73 +64,93 @@ class pdf:
     def countCard(self):
         '''Contador circular para posicionar a imagem na folha'''
         self.idCard = (self.idCard+1) 
-        if self.idCard == 8 : #Cria uma outra pagina
+        if self.idCard == (self.conf['perLine']*self.conf['perCollum']) : #Cria uma outra pagina
             self.file.showPage()
             self.pg = self.pg + 1
             self.idCard = 0
-            
+
+    def positionDraw(self):
+        '''Define em quais pontos ocorrerá o desenho da carta'''
+
+#
+#
+#        #Deslocamento Horizontal de acordo com qual coluna será desenhada
+#        if ( (self.idCard%self.conf['perLine']) == 0): # Coluna inicial
+#            offSetH = (self.conf['margH']+self.conf['larguraCarta']) * (self.idCard%self.conf['perLine'])
+#        else:
+#            #Espaço entre Cartas
+#            spaceInterH = self.conf['margH'] #identico a margem Esquerda
+#            offSetH = (spaceInterH +self.conf['larguraCarta']) * (self.idCard%self.conf['perLine'])
+#
+#        #Deslocamento Vertical
+#        if (((self.idCard%(self.conf['perLine']*self.conf['perCollum']))-self.conf['perLine']) >= 0): #Linha
+#            offSetW = 0
+#        else:
+#            #Espaço entre Cartas
+#            spaceInterV = self.conf['margV'] #identico a margem Base
+#            offSetW = spaceInterV + self.conf['alturaCarta']
+#
+
+
+
+
+        #Define qual coluna será desenhado
+        coluna = self.idCard%self.conf['perLine']
+        linha = (math.floor(self.idCard/self.conf['perLine']))
+
+        #Deslocamento Horizontal de acordo com qual coluna será desenhada
+        offSetH = coluna * (self.conf['margH']+self.conf['larguraCarta'])
+        offSetW = linha * (self.conf['margV']+self.conf['alturaCarta'])
+
+        
+        x1 = offSetH + self.conf['margH']
+        x2 = x1 + self.conf['larguraCarta']
+        y1 = offSetW + self.conf['margV']
+        y2 = y1 + self.conf['alturaCarta']
+        print(linha,coluna)
+       
+
+        return {
+            "x1":x1,
+            "x2":x2,
+            "y1":y1,
+            "y2":y2
+        }
+
+    def printCut(self):
+        '''Desenha os cortes na quina da carta'''
+        point = self.positionDraw()
+        #Altera a cor do traço que informa onde deve ser o corte 
+        self.file.setStrokeColorRGB(255,0,0)
+        #Borda a ser cortada
+        self.file.line( point['x1'],point['y1']+4,point['x1']+4,point['y1'])#Quina EI
+        self.file.line( point['x2']-4,point['y1'],point['x2'],point['y1']+4)#Quina DI
+        self.file.line( point['x2']-4,point['y2'],point['x2'],point['y2']-4)#Quina DS
+        self.file.line( point['x1']+4,point['y2'],point['x1'],point['y2']-4)#Quina ES
+        #retorna a cor preta como padrão de traço
+        self.file.setStrokeColorRGB(0,0,0)  
+
+
     def printCard(self,pathImage):
-        '''Printa a imagem na folha'''
-        #Variavel
-        cut = True
+        '''Desenha a imagem na folha'''
 
-        #Tamanho da carta
-        larguraCarta = 181.41720855608912+2 #6.4/0.0352778
-        alturaCarta = 249.44866176462256+4  #8.8/0.0352778
+        cut = False
 
-        #Tamanho da pagina
-        larguraPagina = self.size[0]
-        alturaPagina = self.size[1]
-        
-        #Margem
-        margH = (larguraPagina - (larguraCarta*4) ) / 5
-        margV = (alturaPagina - (alturaCarta*2) ) / 3
-
-        #Deslocamento
-        if ( (self.idCard%4) == 0): # Coluna
-            offSetH = (margH +larguraCarta) * (self.idCard%4)
-        else:
-            #Espaço entre Cartas
-            spaceInterH = margH #identico a margem Esquerda
-            offSetH = (spaceInterH +larguraCarta) * (self.idCard%4)
-
-        if (((self.idCard%8)-4) >= 0): #Linha
-            offSetW = 0
-        else:
-            #Espaço entre Cartas
-            spaceInterV = margV #identico a margem Base
-            offSetW = spaceInterV + alturaCarta
+        point = self.positionDraw()
             
-
-        #Quinas da carta
-        x1 = margH + offSetH
-        x2 = x1 + larguraCarta
-        y1 = margV + offSetW
-        y2 = y1 + alturaCarta
-        
         #Imagem
         image = ImageReader(pathImage)
 
         #Desenha a imagem
-        self.file.drawImage(image, x1, y1, width=larguraCarta, height=alturaCarta)
+        self.file.drawImage(image, point['x1'], point['y1'], width=self.conf['larguraCarta'], height=self.conf['alturaCarta'])
         self.file.setStrokeColorRGB(0,0,0) 
 
         #Traça a silhueta
-        self.file.line( x1,y1,x2,y1)#Base
-        self.file.line( x2,y1,x2,y2)#Borda Direita
-        self.file.line( x2,y2,x1,y2)#Top
-        self.file.line( x1,y2,x1,y1)#Borda Esquerda
+        self.file.line( point['x1'],point['y1'],point['x2'],point['y1'])#Base
+        self.file.line( point['x2'],point['y1'],point['x2'],point['y2'])#Borda Direita
+        self.file.line( point['x2'],point['y2'],point['x1'],point['y2'])#Top
+        self.file.line( point['x1'],point['y2'],point['x1'],point['y1'])#Borda Esquerda
 
-        if cut == True :
-            #Altera a cor do traço que informa onde deve ser o corte 
-            self.file.setStrokeColorRGB(255,0,0)
-            #Borda a ser cortada
-            self.file.line( x1,y1+4,x1+4,y1)#Quina EI
-            self.file.line( x2-4,y1,x2,y1+4)#Quina DI
-            self.file.line( x2-4,y2,x2,y2-4)#Quina DS
-            self.file.line( x1+4,y2,x1,y2-4)#Quina ES
-            #retorna a cor preta como padrão de traço
-            self.file.setStrokeColorRGB(0,0,0)  
-
-        #Incrementa o 'id' de posicionamento
+        if cut:
+            self.printCut()
         self.countCard()

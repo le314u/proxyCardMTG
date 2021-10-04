@@ -13,6 +13,7 @@ class Main:
         self.extractionManager = manager.Manager()
         self.pdf = pdf.pdf()
         arg = self.menu.selection({
+            "Exemplo":"Cria um arquivo de modelo",
             "New":"Cria um novo deck",
             "Old":"Cria um deck ja existente"
         })
@@ -25,7 +26,6 @@ class Main:
             self.makeDeck()
             self.getImg()
             self.myDeck()
-            self.myDrawns()
 
         elif(arg == "Old"):
             lista = self.persistence.listDeck()
@@ -35,7 +35,18 @@ class Main:
             self.deck = literal_eval(self.persistence.load("deck"))
             self.getImg()
             self.myDeck()
-            self.myDrawns()
+            self.myDeckRandom()
+
+        elif(arg == "Exemplo"):
+            nameSpace = input("Digite o nome do deck: ")
+            self.persistence.setData(nameSpace)
+            self.dirDeck()
+            self.persistence.persistFile('snapShot da pagina html', "html")
+            deck = { "Tipo": [ { "qtd": 1, "name": "Nome", "url": "https://link/img.png", "img": "nomeDaImagem" },{ "qtd": 1, "name": "Nome", "url": "https://link/img.png", "img": "nomeDaImagem" } ] }
+            prettyDeck = str( json.dumps(deck, indent=4, sort_keys=False) )
+            self.persistence.persistFile( prettyDeck, "deck")
+            self.persistence.persistFile('https://link/img.png', "img")
+
 
     def setUrl(self, url):
         """ Seta a URL """
@@ -50,6 +61,8 @@ class Main:
             #Cria o diretorio que ficara todos os arquivos do deck
             if(not self.persistence.persistDir(self.persistence.pastaDeck)):
                 print("Erro ao criar Diretorio")
+        else:
+            print("Ja existe um diretorio com este nome")
 
     def requestUrl(self, url):
         """ Request da Pagina """
@@ -102,11 +115,12 @@ class Main:
         #Preenche o canvas com as imagens do Deck
         for type in self.deck:
             for card in self.deck[type]:
-                for i in range(card['qtd']):
-                    self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
+                if(card['qtd'] <= 4):#So desenha caso tenha 4 ou menos quantidades de uma carta
+                    for i in range(card['qtd']):
+                        self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
         self.pdf.close()
     
-    def myDrawns(self):
+    def myDeckRandom(self):
         #Cria lista
         l=[]
         for type in self.deck:
@@ -116,7 +130,7 @@ class Main:
         random.shuffle(l)
     
         #Cria o canvas do PDF
-        self.pdf.makePdf(self.persistence.pastaDeck+"/myDrawns.pdf")
+        self.pdf.makePdf(self.persistence.pastaDeck+"/myDeckRandom.pdf")
         for card in l:
             self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
         self.pdf.close()

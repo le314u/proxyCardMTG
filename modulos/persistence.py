@@ -16,6 +16,12 @@ class persistence:
         except:
             pass
         
+    def setData(self, nameDeck):
+        '''Define pasta onde ira persistir as imagens do deck'''
+        self.nameDeck = nameDeck
+        self.pastaDeck = "Deck/deck_"+self.nameDeck
+        self.site = urlparse('https://127.0.0.1:8080').netloc
+        return (self.nameDeck, self.pastaDeck, self.site, self.url)
 
     def processeUrl(self, url):
         '''Define pasta onde ira persistir as imagens do deck'''

@@ -26,6 +26,8 @@ class pdf:
         alturaPagina = 595.2755905511812
         larguraCarta = 181.41720855608912 #6.4/0.0352778
         alturaCarta = 249.44866176462256  #8.8/0.0352778
+        larguraCarta = 100#181.41720855608912 #6.4/0.0352778
+        alturaCarta = 160#249.44866176462256  #8.8/0.0352778
         size = (larguraPagina, alturaPagina)
         perLine = math.floor(larguraPagina/larguraCarta)
         perCollum = math.floor(alturaPagina/alturaCarta)
@@ -54,6 +56,8 @@ class pdf:
 
     def makePdf(self, path):
         '''Inicia o Arquivo pdf'''
+        self.pg = 0
+        self.idCard = 0
         self.file = canvas.Canvas(path,pagesize=self.conf['size'])
 
     def close(self):

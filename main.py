@@ -125,12 +125,12 @@ class Main:
         l=[]
         for type in self.deck:
             for card in self.deck[type]:
-                for i in range(int(card['qtd'])):
+                for i in range(card['qtd']):
                     l.append(card)
         random.shuffle(l)
     
         #Cria o canvas do PDF
-        self.pdf.makePdf(self.persistence.pastaDeck+"/myDeckRandom.pdf")
+        self.pdf.makePdf(self.persistence.pastaDeck+"/"+self.persistence.nameDeck+"_Random.pdf")
         for card in l:
             self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
         self.pdf.close()

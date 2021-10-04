@@ -22,7 +22,6 @@ class pdf:
     def setConf(self):
         '''Define as configurações de impressão'''
     
-        
         larguraPagina =841.8897637795277
         alturaPagina = 595.2755905511812
         larguraCarta = 181.41720855608912 #6.4/0.0352778
@@ -72,28 +71,6 @@ class pdf:
     def positionDraw(self):
         '''Define em quais pontos ocorrerá o desenho da carta'''
 
-#
-#
-#        #Deslocamento Horizontal de acordo com qual coluna será desenhada
-#        if ( (self.idCard%self.conf['perLine']) == 0): # Coluna inicial
-#            offSetH = (self.conf['margH']+self.conf['larguraCarta']) * (self.idCard%self.conf['perLine'])
-#        else:
-#            #Espaço entre Cartas
-#            spaceInterH = self.conf['margH'] #identico a margem Esquerda
-#            offSetH = (spaceInterH +self.conf['larguraCarta']) * (self.idCard%self.conf['perLine'])
-#
-#        #Deslocamento Vertical
-#        if (((self.idCard%(self.conf['perLine']*self.conf['perCollum']))-self.conf['perLine']) >= 0): #Linha
-#            offSetW = 0
-#        else:
-#            #Espaço entre Cartas
-#            spaceInterV = self.conf['margV'] #identico a margem Base
-#            offSetW = spaceInterV + self.conf['alturaCarta']
-#
-
-
-
-
         #Define qual coluna será desenhado
         coluna = self.idCard%self.conf['perLine']
         linha = (math.floor(self.idCard/self.conf['perLine']))
@@ -102,13 +79,10 @@ class pdf:
         offSetH = coluna * (self.conf['margH']+self.conf['larguraCarta'])
         offSetW = linha * (self.conf['margV']+self.conf['alturaCarta'])
 
-        
         x1 = offSetH + self.conf['margH']
         x2 = x1 + self.conf['larguraCarta']
         y1 = offSetW + self.conf['margV']
         y2 = y1 + self.conf['alturaCarta']
-        print(linha,coluna)
-       
 
         return {
             "x1":x1,
@@ -134,7 +108,7 @@ class pdf:
     def printCard(self,pathImage):
         '''Desenha a imagem na folha'''
 
-        cut = False
+        cut = True
 
         point = self.positionDraw()
             

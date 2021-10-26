@@ -24,10 +24,10 @@ class pdf:
     
         larguraPagina =841.8897637795277
         alturaPagina = 595.2755905511812
-        larguraCarta = 181.41720855608912 #6.4/0.0352778
-        alturaCarta = 249.44866176462256  #8.8/0.0352778
-        larguraCarta = 100#181.41720855608912 #6.4/0.0352778
-        alturaCarta = 160#249.44866176462256  #8.8/0.0352778
+        larguraCarta = 181.41720855608912+2 #6.4/0.0352778
+        alturaCarta = 249.44866176462256+4  #8.8/0.0352778
+        #larguraCarta = 100#181.41720855608912 #6.4/0.0352778
+        #alturaCarta = 160#249.44866176462256  #8.8/0.0352778
         size = (larguraPagina, alturaPagina)
         perLine = math.floor(larguraPagina/larguraCarta)
         perCollum = math.floor(alturaPagina/alturaCarta)

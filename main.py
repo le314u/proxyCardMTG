@@ -1,3 +1,7 @@
+from os import name
+from urllib.parse import urldefrag
+from urllib.parse import urlparse
+from unidecode import Cache
 from modulos.extraction import manager
 from modulos import pdf, persistence, request, menu
 from ast import literal_eval
@@ -19,50 +23,27 @@ class Main:
         })
 
         if(arg == "New"):
+            #Cria um deck passo a passo
             url = input("Digite a url: ")
-            self.setUrl(url)
-            self.dirDeck()
+            self.metaData(url)
             self.requestUrl(url)
             self.makeDeck()
             self.getImg()
             self.myDeck()
 
         elif(arg == "Old"):
+            #Verifica qual o deck a ser trabalhado
             lista = self.persistence.listDeck()
-            arg = self.menu.selection( lista )
-            self.persistence.nameDeck = arg
-            self.persistence.pastaDeck = "Deck/deck_"+arg
-            self.deck = literal_eval(self.persistence.load("deck"))
+            keyDeck = self.menu.selection( lista )    
+            self.persistence.meta(keyDeck)        
+            #Continua o processo de onde parou e renderiza um novo PDF
+            self.metaData()
+            self.requestUrl(self.meta['url'])
+            self.makeDeck()               
             self.getImg()
             self.myDeck()
-            self.myDeckRandom()
 
-        elif(arg == "Exemplo"):
-            nameSpace = input("Digite o nome do deck: ")
-            self.persistence.setData(nameSpace)
-            self.dirDeck()
-            self.persistence.persistFile('snapShot da pagina html', "html")
-            deck = { "Tipo": [ { "qtd": 1, "name": "Nome", "url": "https://link/img.png", "img": "nomeDaImagem" },{ "qtd": 1, "name": "Nome", "url": "https://link/img.png", "img": "nomeDaImagem" } ] }
-            prettyDeck = str( json.dumps(deck, indent=4, sort_keys=False) )
-            self.persistence.persistFile( prettyDeck, "deck")
-            self.persistence.persistFile('https://link/img.png', "img")
-
-
-    def setUrl(self, url):
-        """ Seta a URL """
-        #Pega dados essenciais da URL
-        self.persistence.processeUrl(url)
-        #selecionar o extractor / scraper
-        self.scraper = self.extractionManager.selectExtractor(self.persistence.site)
-
-    def dirDeck(self):
-        """ Verifica se existe um diretorio proprio para o deck """
-        if not self.persistence.it_is_ok(self.persistence.pastaDeck):
-            #Cria o diretorio que ficara todos os arquivos do deck
-            if(not self.persistence.persistDir(self.persistence.pastaDeck)):
-                print("Erro ao criar Diretorio")
-        else:
-            print("Ja existe um diretorio com este nome")
+ 
 
     def requestUrl(self, url):
         """ Request da Pagina """
@@ -80,7 +61,6 @@ class Main:
         if(not self.persistence.processOk("deck")):
             #Preparando para trabalhar com o deck
             self.scraper.load(self.html, self.persistence.nameDeck, self.persistence.pastaDeck)
-            #Cataloga o Deck
             self.deck = self.scraper.catalogarDeck()
             #Formata o Deck
             prettyDeck = str( json.dumps(self.deck, indent=4, sort_keys=False) )
@@ -108,7 +88,6 @@ class Main:
                         self.request.downloadIMG(url, name)
             self.persistence.persistFile(listUrl, "img")
 
-
     def myDeck(self):
         #Cria o canvas do PDF
         self.pdf.makePdf(self.persistence.pastaDeck+"/"+self.persistence.nameDeck+".pdf")
@@ -134,6 +113,38 @@ class Main:
         for card in l:
             self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
         self.pdf.close()
+
+    def dirDeck(self):
+        """ Verifica se existe um diretorio proprio para o deck """
+        if not self.persistence.it_is_ok(self.persistence.pastaDeck):
+            #Cria o diretorio que ficara todos os arquivos do deck
+            if(not self.persistence.persistDir(self.persistence.pastaDeck)):
+                print("Erro ao criar Diretorio")
+        else:
+            print("Ja existe um diretorio com este nome")
+
+
+    def metaData(self, url=""):
+        """ Cria um arquivos somente com meta dados """
+        if(not self.persistence.processOk("meta")):
+            #Extrai metadados da url
+            keyDeck = url.split("/")[-1].split("=")[-1]
+            site = urlparse(url).netloc
+            #Cria um Objeto para ser salvo
+            self.meta = { "nameDeck":keyDeck, "dirDeck":"Deck/deck_"+keyDeck, "extractor":site, "url":url }
+            prettyMeta = str( json.dumps(self.meta, indent=4, sort_keys=True) )
+            #Persiste os meta dados
+            self.persistence.meta(keyDeck)
+            self.dirDeck()
+            self.persistence.persistFile( prettyMeta, "meta")
+        else:
+            #Le o arquivo de meta dados do Deck
+            self.meta = literal_eval(self.persistence.load("meta"))
+        #selecionar o extractor / scraper
+        self.scraper = self.extractionManager.selectExtractor(self.meta["extractor"])
+
+
+
 
 
 

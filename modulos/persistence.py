@@ -6,30 +6,18 @@ from urllib.parse import urlparse
 class persistence:
 
     def __init__(self):
-        self.url = ''
         self.nameDeck = ''
         self.pastaDeck = ''
-        self.site = ''
-        try:
+        try:#Cria as pastas essenciais para que o programa funcione
             self.persistDir("Deck")
             self.persistDir("Deck/img")
         except:
             pass
         
-    def setData(self, nameDeck):
-        '''Define pasta onde ira persistir as imagens do deck'''
+    def meta(self, nameDeck):
+        '''Carrega os metaDados de um deck'''
         self.nameDeck = nameDeck
-        self.pastaDeck = "Deck/deck_"+self.nameDeck
-        self.site = urlparse('https://127.0.0.1:8080').netloc
-        return (self.nameDeck, self.pastaDeck, self.site, self.url)
-
-    def processeUrl(self, url):
-        '''Define pasta onde ira persistir as imagens do deck'''
-        self.url = url
-        self.nameDeck = url.split("/")[-1].split("=")[-1]
-        self.pastaDeck = "Deck/deck_"+self.nameDeck
-        self.site = urlparse(url).netloc
-        return (self.nameDeck, self.pastaDeck, self.site, self.url)
+        self.pastaDeck = "Deck/deck_"+nameDeck
     
     def processOk(self, extensao):
         ''' Verifica o que ja foi feito '''
@@ -60,17 +48,7 @@ class persistence:
             return True
         except:
             return False
-
-    def load(self, extensao):
-        '''Abre um arquivo para leitura'''
-        path_file = self.pastaDeck+"/"+self.nameDeck+"."+extensao
-        file = open(path_file, 'r')
-        content = ''
-        for line in file:
-            content = content + line
-        file.close()
-        return content
-    
+   
     def listDeck(self):
         '''Dicionario com todos os Decks'''
         lista = os.listdir("Deck/")
@@ -90,3 +68,4 @@ class persistence:
             content = content + line
         file.close()
         return content
+

@@ -1,4 +1,4 @@
-from . import burnMana, ligaMagic, moxField
+from . import burnMana, ligaMagic, moxField,tappedout
 
 class Manager:
     def __init__(self, verbose=True):
@@ -12,6 +12,8 @@ class Manager:
             extract = burnMana.BurnMana(self.verbose)
         elif (self.isMoxField(urlBase)):
             extract = moxField.MoxField(self.verbose)
+        elif (self.isTappedout(urlBase)):
+            extract = tappedout.Tappedout(self.verbose)
         return extract
         
     def isLigaMagic(self, urlBase):
@@ -25,3 +27,7 @@ class Manager:
     def isMoxField(self, urlBase):
         urlBase = urlBase.lower()
         return (urlBase.find('moxfield.') != -1)
+
+    def isTappedout(self, urlBase):
+        urlBase = urlBase.lower()
+        return (urlBase.find('tappedout.') != -1)

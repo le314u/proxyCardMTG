@@ -10,13 +10,13 @@ Será aberto o programa dentro de um ambiente virtual.
 Será isntalada todas as depêndencias
 Será requisitado uma url do site liga magic ou burn mana como por exemplo
 
->ligaMagic
+*ligaMagic
 
->burnMana
+*burnMana
 
->tappedout
+*tappedout
 
->moxField (Problemas para fazer download do HTML)
+*moxField (Problemas para fazer download do HTML)
 
 
 será feito downlaod de todas as artes das cartas que compoẽ deck principal e colocadas em ./deck_***$id*** onde tambem  estará o arquivo pdf que contem todas as cartas prontas para impressão para jogar *For fun*
@@ -26,10 +26,15 @@ será feito downlaod de todas as artes das cartas que compoẽ deck principal e 
 Será criado o seguintes diretorios:
 
 ├── <$id>.meta
+
 ├── <$id>.html
+
 ├── <$id>.deck
+
 ├── <$id>.img
+
 ├── <$id>.pdf
+
 └── imgs
 
 

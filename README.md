@@ -1,25 +1,30 @@
-A partir de uma url para um deck será criado um pdf pronto para impressão das proxy de MTG
+A partir de uma url para um deck, será criado um pdf pronto para impressão das proxy de MTG
 
 ## Como fazer
 
-Ao executar o comando
+Ao executar o comando *./init.sh*
+ 
+Será aberto o programa dentro de um ambiente virtual, instalado todas as depêndencias e iniciará a aplicação.
 
-> ./init.sh
+Ao iniciar a aplicação há duas opçoes 
+1. Old (Recria o pdf a partir de <$id>.deck)
+2. New (Cria um pdf a partir de uma URL)
 
-Será aberto o programa dentro de um ambiente virtual.
-Será isntalada todas as depêndencias
-Será requisitado uma url do site liga magic ou burn mana como por exemplo
+A aplicação aceita url do seguintes sites:
 
-*ligaMagic
+- ligaMagic
+- burnMana
+- tappedout
+- moxField (Problemas para fazer download do HTML)
 
-*burnMana
+O processo para criação do PDF é:
 
-*tappedout
+1. Download da pagina HTML
+2. Extração das cartas presentes no Deck
+3. Download das imagens
+4. Criação do PDF
 
-*moxField (Problemas para fazer download do HTML)
-
-
-será feito downlaod de todas as artes das cartas que compoẽ deck principal e colocadas em ./deck_***$id*** onde tambem  estará o arquivo pdf que contem todas as cartas prontas para impressão para jogar *For fun*
+Todos os metadados do deck são colocados em ./deck_***$id*** 
 
 ### Estrutura
 

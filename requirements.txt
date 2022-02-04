@@ -5,7 +5,7 @@ chardet==3.0.4
 idna==2.10
 lxml==4.6.5
 Pillow==9.0.0
-reportlab==3.5.46
+reportlab==3.5.55
 requests==2.24.0
 soupsieve==2.0.1
 Unidecode==1.1.1

@@ -1,4 +1,7 @@
-from . import burnMana, ligaMagic, moxField,tappedout
+from .burnMana import BurnMana
+from .ligaMagic import LigaMagic
+from .moxField import MoxField
+from .tappedout import Tappedout
 
 class Manager:
     def __init__(self, verbose=True):
@@ -6,28 +9,13 @@ class Manager:
         pass
 
     def selectExtractor(self, urlBase):
-        if (self.isLigaMagic(urlBase)):
-            extract = ligaMagic.LigaMagic(self.verbose)
-        elif (self.isBurnMana(urlBase)):
-            extract = burnMana.BurnMana(self.verbose)
-        elif (self.isMoxField(urlBase)):
-            extract = moxField.MoxField(self.verbose)
-        elif (self.isTappedout(urlBase)):
-            extract = tappedout.Tappedout(self.verbose)
+        if(LigaMagic.thisExtractor(urlBase)):
+            extract = LigaMagic(self.verbose)
+        elif (BurnMana.thisExtractor(urlBase)):
+            extract = BurnMana(self.verbose)
+        elif (MoxField.thisExtractor(urlBase)):
+            extract = MoxField(self.verbose)
+        elif (Tappedout.thisExtractor(urlBase)):
+            extract = Tappedout(self.verbose)
         return extract
         
-    def isLigaMagic(self, urlBase):
-        urlBase = urlBase.lower()
-        return (urlBase.find('ligamagic.') != -1)
-    
-    def isBurnMana(self, urlBase):
-        urlBase = urlBase.lower()
-        return (urlBase.find('burnmana.') != -1)
-    
-    def isMoxField(self, urlBase):
-        urlBase = urlBase.lower()
-        return (urlBase.find('moxfield.') != -1)
-
-    def isTappedout(self, urlBase):
-        urlBase = urlBase.lower()
-        return (urlBase.find('tappedout.') != -1)

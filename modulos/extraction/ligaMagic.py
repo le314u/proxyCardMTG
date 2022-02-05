@@ -2,22 +2,20 @@
 from bs4 import BeautifulSoup #Biblioteca de extração de dados
 import lxml #Biblioteca parser(analisador) HTML
 import os #Biblioteca para manipular diretorios
-
+from .extractor import Extractor
     
-class LigaMagic:
+class LigaMagic(Extractor):
     def __init__(self, verbose=False):
-        self.Deck = {}
-        self.html = None
-        self.nameDeck = ''
-        self.pastaDeck = ''
-        self.verbose = verbose
+        super().__init__(verbose);
 
     def load(self, html, nameDeck, pastaDeck):
-        self.Deck = {}
-        self.html=html
-        self.nameDeck=nameDeck
-        self.pastaDeck=pastaDeck
-
+        super().load(html, nameDeck, pastaDeck);
+        
+    @staticmethod
+    def thisExtractor(urlBase):
+        urlBase = urlBase.lower()
+        return (urlBase.find('ligamagic.') != -1)
+    
     
     def catalogarDeck(self):
         '''Cataloga o Deck (pegando [qtd, nome, img, css])'''
@@ -54,4 +52,3 @@ class LigaMagic:
                 #Quantidade e nome da carta
                 self.Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
         return self.Deck
-   

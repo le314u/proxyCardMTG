@@ -4,20 +4,19 @@ import lxml #Biblioteca parser(analisador) HTML
 import os #Biblioteca para manipular diretorios
 import re #Biblioteca para manipula expressoes regulares
 from unidecode import unidecode # Biblioteca para tirar os acentos 
-
-class BurnMana:
+from .extractor import Extractor
+    
+class BurnMana(Extractor):
     def __init__(self, verbose=False):
-        self.Deck = {}
-        self.html = None
-        self.nameDeck = ''
-        self.pastaDeck = ''
-        self.verbose = verbose
+        super().__init__(verbose);
 
     def load(self, html, nameDeck, pastaDeck):
-        self.Deck = {}
-        self.html=html
-        self.nameDeck=nameDeck
-        self.pastaDeck=pastaDeck
+        super().load(html, nameDeck, pastaDeck);
+    
+    @staticmethod
+    def thisExtractor(urlBase):
+        urlBase = urlBase.lower()
+        return (urlBase.find('burnmana.') != -1)
 
     def _name2nameAttribute(self, name):
         #Converte o nome para um nome valido para as propriedades
@@ -68,4 +67,3 @@ class BurnMana:
                         "img":nameImg
                     })
         return self.Deck
-   

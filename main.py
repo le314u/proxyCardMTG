@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 from unidecode import Cache
 from modulos.extraction import manager
 from modulos import pdf, persistence, request, menu
+from modulos.view import View
 from ast import literal_eval
 import json
 import random
@@ -16,11 +17,7 @@ class Main:
         self.request = request.request()
         self.extractionManager = manager.Manager()
         self.pdf = pdf.pdf()
-        arg = self.menu.selection({
-            "Exemplo":"Cria um arquivo de modelo",
-            "New":"Cria um novo deck",
-            "Old":"Cria um deck ja existente"
-        })
+        arg = self.menu.selection(View.listOptions())
 
         if(arg == "New"):
             #Cria um deck passo a passo
@@ -33,8 +30,7 @@ class Main:
 
         elif(arg == "Old"):
             #Verifica qual o deck a ser trabalhado
-            lista = self.persistence.listDeck()
-            keyDeck = self.menu.selection( lista )    
+            keyDeck = self.menu.selection( View.listDecks() )
             self.persistence.meta(keyDeck)        
             #Continua o processo de onde parou e renderiza um novo PDF
             self.metaData()

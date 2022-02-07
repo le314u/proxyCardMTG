@@ -48,16 +48,6 @@ class persistence:
             return True
         except:
             return False
-   
-    def listDeck(self):
-        '''Dicionario com todos os Decks'''
-        lista = os.listdir("Deck/")
-        lista.remove("img")
-        dictDeck = {}
-        for deck in lista:
-            key = deck[5:]
-            dictDeck[key]=deck
-        return dictDeck
     
     def load(self, extensao):
         '''Abre um arquivo para leitura'''

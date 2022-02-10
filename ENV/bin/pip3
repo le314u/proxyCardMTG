@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/guest/Área de Trabalho/proxyCardMTG/ENV/bin/python" "$0" "$@"
+'''exec' "/home/guest/Área de Trabalho/proxyCardMTG/ENV/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

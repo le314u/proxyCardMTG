@@ -45,7 +45,7 @@ class LigaMagic(Extractor):
 
             else:
                 qtd = int(colunas[0].string)
-                name = colunas[1].string
+                name = colunas[1].findNext('a').getText()
                 img = linha.find("a")["data-tooltip"]#Style css é o nome do arquivo
                 url = httpEstruct.find_all(id="mystickytooltip")[0].find(id="lazy_"+img)['lazy-src'][2:]
         

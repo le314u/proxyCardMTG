@@ -37,12 +37,15 @@ Criação do arquivo PDF
 ### Estrutura
 O diretório ./deck_{$idDeck} contém todos os metadados do deck, incluindo:
 
-imgs: um diretório com imagens de todas as cartas presentes no deck  
-{$idDeck}.meta: um arquivo com metadados sobre o site de origem (nome do deck, URL, procedimento de extração e diretório local)  
-{$idDeck}.deck: um arquivo com metadados sobre o deck (quantidade de cada carta, link da imagem de cada carta e nome de cada imagem)  
-{$idDeck}.html: um arquivo com o código-fonte estático da página onde o deck está hospedado  
-{$idDeck}.img: um arquivo com o link de todas as imagens  
-{$idDeck}.pdf: um arquivo pronto para impressão  
+| Arquivo/Diretorio | Descrição |
+| --- | --- |
+| imgs/ | Um diretório com imagens de todas as cartas presentes no deck |
+| {$idDeck}.meta | Um arquivo com metadados sobre o site de origem (nome do deck, URL, procedimento de extração e diretório local) |
+| {$idDeck}.deck | Um arquivo com metadados sobre o deck (quantidade de cada carta, link da imagem de cada carta e nome de cada imagem) |
+| {$idDeck}.html | Um arquivo com o código-fonte estático da página onde o deck está hospedado |
+| {$idDeck}.img | Um arquivo com o link de todas as imagens |
+| {$idDeck}.pdf | Um arquivo pronto para impressão |
+
 
 ### Autor
 Este projeto foi criado por le314u um viciado em magic e aficionado por commander e legacy.

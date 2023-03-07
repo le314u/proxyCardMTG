@@ -2,7 +2,7 @@
 
 Este projeto consiste em uma aplicação em Python que permite a criação de um arquivo PDF de um deck de Magic: The Gathering, a partir de uma URL de sites como: ligaMagic, burnMana, tappedout, moxField (ressalvo que a obtenção do html deste ultimo deve ser manual). O PDF criado contém todas as cartas presentes no deck.
 
-## Instruções de Uso
+## Instalação
 
 Para utilizar a ferramenta, é necessário ter o Python 3 instalado no computador, juntamente com as bibliotecas Pillow e requests. Para instalar as bibliotecas, basta executar o seguinte comando:
 
@@ -14,6 +14,8 @@ No seu primeiro uso voce pode apenas executar o script init.sh na raiz do projet
 
 ```bash init.sh```
 
+## Instruções de Uso
+
 Ao iniciar a aplicação, o usuário terá duas opções:
 
 | Opção  | Descrição                                               |
@@ -21,10 +23,7 @@ Ao iniciar a aplicação, o usuário terá duas opções:
 | New    | Cria um PDF a partir de uma URL de um site compatível.   |
 | Old    | Cria um PDF a partir de um arquivo de deck (.deck).      |
 
-
-
 A opção `new` suporta URLs de sites como LigaMagic, BurnMana, TappedOut e MoxField (com algumas limitações pois a captura do html do mox field deve ser feita manualmente).
-
 
 ### Processo
 
@@ -34,7 +33,6 @@ Download da página HTML
 Extração das cartas presentes no deck  
 Download das imagens das cartas  
 Criação do arquivo PDF  
-
 
 ### Estrutura
 O diretório ./deck_{$idDeck} contém todos os metadados do deck, incluindo:

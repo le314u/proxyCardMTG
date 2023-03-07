@@ -18,17 +18,27 @@ class Menu:
         except:
             return False
 
+    def input(self):
+        return input("-"*40 +"\nDigite a opção: ")
+
     def selection(self, dict):
         """ Opções do menu """
         os.system('clear') or None
+        count = 0
         while(True):
             # Mostra as opções
             self.display(dict)
-            # Recebe uma opção
-            arg = input("Digite a opção: ")
-            condition = self.option(dict, arg)
             #Valida a opção
-            if condition : break 
+            if self.option(dict, self.input()) : break 
             else:
+                count=count+1;
+                if count >=3:
+                    self.error()
                 os.system('clear') or None
         return arg
+
+    def error(self):
+        print("-"*40)
+        print("Estou presumindo que você não esta lendo, entao vou encerrar")
+        print("-"*40)
+        exit()

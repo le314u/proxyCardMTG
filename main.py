@@ -29,7 +29,6 @@ class Main:
 
     def input(self):
         return self.menu.selection(View.listOptions())
-    
     def optNew(self,url=""):
         #Cria um deck passo a passo
         if url=="":
@@ -39,7 +38,6 @@ class Main:
         self.makeDeck()
         self.getImg()
         self.myDeck()
-    
     def optOld(self,keyDeck=""):
         #Verifica qual o deck a ser trabalhado
         if keyDeck=="":

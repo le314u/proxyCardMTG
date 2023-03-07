@@ -16,8 +16,8 @@ No seu primeiro uso voce pode apenas executar o script init.sh na raiz do projet
 
 Ao iniciar a aplicação, o usuário terá duas opções:
 
-New: cria um PDF a partir de uma URL de um site compatível.
-Old: cria um PDF a partir de um arquivo de deck (.deck).
+New: cria um PDF a partir de uma URL de um site compatível.  
+Old: cria um PDF a partir de um arquivo de deck (.deck).  
 
 A aplicação suporta URLs de sites como LigaMagic, BurnMana, TappedOut e MoxField (com algumas limitações).
 
@@ -25,10 +25,10 @@ A aplicação suporta URLs de sites como LigaMagic, BurnMana, TappedOut e MoxFie
 
 O processo de criação do PDF ocorre em quatro etapas:
 
-Download da página HTML
-Extração das cartas presentes no deck
-Download das imagens das cartas
-Criação do arquivo PDF
+Download da página HTML  
+Extração das cartas presentes no deck  
+Download das imagens das cartas  
+Criação do arquivo PDF  
 
 
 ### Estrutura

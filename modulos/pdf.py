@@ -10,39 +10,31 @@ class pdf:
         self.file = None
         self.idCard = 0
         self.pg = 0
-        self.conf = {
-            "size":(841.8897637795277, 595.2755905511812),
-            "larguraCarta" : 0,
-            "alturaCarta" : 0,
-            "perLine": 0,
-            "perCollum": 0
-        }
+        self.conf = {}
         self.setConf()
+
 
     def setConf(self):
         '''Define as configurações de impressão'''
-    
-        larguraPagina =841.8897637795277
-        alturaPagina = 595.2755905511812
-        larguraCarta = 181.41720855608912+2 #6.4/0.0352778
-        alturaCarta = 249.44866176462256+4  #8.8/0.0352778
-        #larguraCarta = 100#181.41720855608912 #6.4/0.0352778
-        #alturaCarta = 160#249.44866176462256  #8.8/0.0352778
-        size = (larguraPagina, alturaPagina)
-        perLine = math.floor(larguraPagina/larguraCarta)
-        perCollum = math.floor(alturaPagina/alturaCarta)
-        margH = (larguraPagina - (larguraCarta*perLine) ) / (perLine+1)
-        margV = (alturaPagina - (alturaCarta*perCollum) ) / (perCollum+1)
+        CM2PT = 28.3464567
+        wPage= lambda cm: cm * CM2PT
+        hPage = lambda cm: cm * CM2PT
+        wCard = lambda cm: cm * CM2PT + 2
+        hCard = lambda cm: cm * CM2PT + 4
+        perLine = lambda wPage, wCard : math.floor(wPage/wCard)
+        perCollum = lambda hPage, hCard : math.floor(hPage/hCard)
+        horizMargin = lambda wPage, wCard, perLine : (wPage - (wCard*perLine) ) / (perLine+1)
+        vertMargin = lambda  hPage, hCard, perCollum: (hPage - (hCard*perCollum) ) / (perCollum+1)
 
         self.conf = {
-            "size":size,
-            "larguraCarta":larguraCarta,
-            "alturaCarta":alturaCarta,
-            "perLine":perLine,
-            "perCollum":perCollum,
-            "margH":margH,
-            "margV":margV
-        }
+            "size": (wPage(21), hPage(29.7)),
+            "wCard": wCard(6.4),
+            "hCard": hCard(8.8),
+            "perLine": perLine(wPage(21), wCard(6.4)),
+            "perCollum": perCollum(hPage(29.7), hCard(8.8)),
+            "horizMargin": horizMargin(wPage(21), wCard(6.4), perLine(wPage(21), wCard(6.4))),
+            "vertMargin": vertMargin(hPage(29.7), hCard(8.8), perCollum(hPage(29.7), hCard(8.8)))
+    }
 
     def text(self, text):
         ''' Escreve um texto na pagina'''
@@ -80,13 +72,13 @@ class pdf:
         linha = (math.floor(self.idCard/self.conf['perLine']))
 
         #Deslocamento Horizontal de acordo com qual coluna será desenhada
-        offSetH = coluna * (self.conf['margH']+self.conf['larguraCarta'])
-        offSetW = linha * (self.conf['margV']+self.conf['alturaCarta'])
+        offSetH = coluna * (self.conf['horizMargin'] + self.conf['wCard'])
+        offSetW = linha * (self.conf['vertMargin'] + self.conf['hCard'])
 
-        x1 = offSetH + self.conf['margH']
-        x2 = x1 + self.conf['larguraCarta']
-        y1 = offSetW + self.conf['margV']
-        y2 = y1 + self.conf['alturaCarta']
+        x1 = offSetH + self.conf['horizMargin']
+        x2 = x1 + self.conf['wCard']
+        y1 = offSetW + self.conf['vertMargin']
+        y2 = y1 + self.conf['hCard']
 
         return {
             "x1":x1,
@@ -109,18 +101,15 @@ class pdf:
         self.file.setStrokeColorRGB(0,0,0)  
 
 
-    def printCard(self,pathImage):
+    def printCard(self,pathImage,cut=True):
         '''Desenha a imagem na folha'''
-
-        cut = True
-
         point = self.positionDraw()
             
         #Imagem
         image = ImageReader(pathImage)
 
         #Desenha a imagem
-        self.file.drawImage(image, point['x1'], point['y1'], width=self.conf['larguraCarta'], height=self.conf['alturaCarta'])
+        self.file.drawImage(image, point['x1'], point['y1'], width=self.conf['wCard'], height=self.conf['hCard'])
         self.file.setStrokeColorRGB(0,0,0) 
 
         #Traça a silhueta
@@ -131,4 +120,5 @@ class pdf:
 
         if cut:
             self.printCut()
+
         self.countCard()

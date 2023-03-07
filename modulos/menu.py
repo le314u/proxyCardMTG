@@ -29,7 +29,8 @@ class Menu:
             # Mostra as opções
             self.display(dict)
             #Valida a opção
-            if self.option(dict, self.input()) : break 
+            arg = self.input()
+            if self.option(dict, arg) : break 
             else:
                 count=count+1;
                 if count >=3:

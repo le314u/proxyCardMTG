@@ -10,12 +10,19 @@ class CMD:
                         
     #Flag
     parser.add_argument('-cut', action='store_true', help='imprime a borda da carta') 
+      #Forçar downlaod das imagens novamente
     #Xor New/Old
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('-cmd', action='store_true', help='Roda vida cmd') 
+    group.add_argument('-i', action='store_true', help='Menu interativo') 
     group.add_argument('-url', help='define qual o url sera extraido o deck')
     group.add_argument('-id', help='define qual o deck sera remontado') 
-
+    #Continua de uma determinada etapa
+    step = parser.add_mutually_exclusive_group()
+    step.add_argument('-html', action='store_false', help='Força o request da pagina html') 
+    step.add_argument('-e',"--extract", action='store_false', help='Força a extração de dados do HTML') 
+    step.add_argument('-d', action='store_false', help='Força o download das imagens') 
+    step.add_argument('-pdf', action='store_false', help='Força apenas a reescrita do PDF') 
+  
     self.parser=parser
 
 

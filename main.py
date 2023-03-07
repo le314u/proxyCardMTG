@@ -19,6 +19,12 @@ class Main:
         self.extractionManager = manager.Manager()
         self.pdf = pdf.pdf()
         self.args = CMD()
+        self.conf = {
+            "html":"",
+            "scraper":"",
+            "deck":"",
+            "meta":""
+        }
 
 
     def input(self):
@@ -41,7 +47,7 @@ class Main:
         self.persistence.meta(keyDeck)        
         #Continua o processo de onde parou e renderiza um novo PDF
         self.metaData()
-        self.requestUrl(self.meta['url'])
+        self.requestUrl(self.conf["meta"]['url'])
         self.makeDeck()               
         self.getImg()
         self.myDeck()
@@ -50,26 +56,26 @@ class Main:
         """ Request da Pagina """
         if(not self.persistence.processOk("html")):
             #Faz Download da pagina 
-            self.html = self.request.downloadHTML(url)
+            self.conf["html"] = self.request.downloadHTML(url)
             #Persiste a pagina 
-            self.persistence.persistFile(self.html, "html")
+            self.persistence.persistFile(self.conf["html"], "html")
         else:
             #Le o html do arquivo
-            self.html = self.persistence.load("html")
+            self.conf["html"] = self.persistence.load("html")
 
     def makeDeck(self):
         """ Cataloga o Deck """
         if(not self.persistence.processOk("deck")):
             #Preparando para trabalhar com o deck
-            self.scraper.load(self.html, self.persistence.nameDeck, self.persistence.pastaDeck)
-            self.deck = self.scraper.catalogarDeck()
+            self.conf["scraper"].load(self.conf["html"], self.persistence.nameDeck, self.persistence.pastaDeck)
+            self.conf["deck"] = self.conf["scraper"].catalogarDeck()
             #Formata o Deck
-            prettyDeck = str( json.dumps(self.deck, indent=4, sort_keys=False) )
+            prettyDeck = str( json.dumps(self.conf["deck"], indent=4, sort_keys=False) )
             #Persiste o Deck 
             self.persistence.persistFile( prettyDeck, "deck")
         else:
             #Le o arquivo de catalogo do Deck
-            self.deck = literal_eval(self.persistence.load("deck"))
+            self.conf["deck"] = literal_eval(self.persistence.load("deck"))
 
     def getImg(self):
         """ Faz Download das Imagens """
@@ -77,8 +83,8 @@ class Main:
             listUrl = ''
             #Preparando para trabalhar com o deck
             print("Cards:")
-            for type in self.deck:
-                for card in self.deck[type]:
+            for type in self.conf["deck"]:
+                for card in self.conf["deck"][type]:
                     print(str(card["qtd"])+"\tx\t"+card['name'])
                     listUrl = listUrl + card['url']+'\n'
                     #Faz Download da imagem
@@ -93,8 +99,8 @@ class Main:
         #Cria o canvas do PDF
         self.pdf.makePdf(self.persistence.pastaDeck+"/"+self.persistence.nameDeck+".pdf")
         #Preenche o canvas com as imagens do Deck
-        for type in self.deck:
-            for card in self.deck[type]:
+        for type in self.conf["deck"]:
+            for card in self.conf["deck"][type]:
                 if(card['qtd'] <= 4):#So desenha caso tenha 4 ou menos quantidades de uma carta
                     for i in range(card['qtd']):
                         self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
@@ -103,8 +109,8 @@ class Main:
     def myDeckRandom(self):
         #Cria lista
         l=[]
-        for type in self.deck:
-            for card in self.deck[type]:
+        for type in self.conf["deck"]:
+            for card in self.conf["deck"][type]:
                 for i in range(card['qtd']):
                     l.append(card)
         random.shuffle(l)
@@ -131,17 +137,17 @@ class Main:
             keyDeck = url.split("/")[-1].split("=")[-1]
             site = urlparse(url).netloc
             #Cria um Objeto para ser salvo
-            self.meta = { "nameDeck":keyDeck, "dirDeck":"Deck/deck_"+keyDeck, "extractor":site, "url":url }
-            prettyMeta = str( json.dumps(self.meta, indent=4, sort_keys=True) )
+            self.conf["meta"] = { "nameDeck":keyDeck, "dirDeck":"Deck/deck_"+keyDeck, "extractor":site, "url":url }
+            prettyMeta = str( json.dumps(self.conf["meta"], indent=4, sort_keys=True) )
             #Persiste os meta dados
             self.persistence.meta(keyDeck)
             self.dirDeck()
             self.persistence.persistFile( prettyMeta, "meta")
         else:
             #Le o arquivo de meta dados do Deck
-            self.meta = literal_eval(self.persistence.load("meta"))
+            self.conf["meta"] = literal_eval(self.persistence.load("meta"))
         #selecionar o extractor / scraper
-        self.scraper = self.extractionManager.selectExtractor(self.meta["extractor"])
+        self.conf["scraper"] = self.extractionManager.selectExtractor(self.conf["meta"]["extractor"])
 
     def run(self):
         flag = self.args.flags()

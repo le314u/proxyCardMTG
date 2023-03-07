@@ -5,6 +5,7 @@ from unidecode import Cache
 from modulos.extraction import manager
 from modulos import pdf, persistence, request, menu
 from modulos.view import View
+from modulos.cmd import CMD
 from ast import literal_eval
 import json
 import random
@@ -17,29 +18,33 @@ class Main:
         self.request = request.request()
         self.extractionManager = manager.Manager()
         self.pdf = pdf.pdf()
-        arg = self.menu.selection(View.listOptions())
+        self.args = CMD()
 
-        if(arg == "New"):
-            #Cria um deck passo a passo
+
+    def input(self):
+        return self.menu.selection(View.listOptions())
+    
+    def optNew(self,url=""):
+        #Cria um deck passo a passo
+        if url=="":
             url = input("Digite a url: ")
-            self.metaData(url)
-            self.requestUrl(url)
-            self.makeDeck()
-            self.getImg()
-            self.myDeck()
-
-        elif(arg == "Old"):
-            #Verifica qual o deck a ser trabalhado
+        self.metaData(url)
+        self.requestUrl(url)
+        self.makeDeck()
+        self.getImg()
+        self.myDeck()
+    
+    def optOld(self,keyDeck=""):
+        #Verifica qual o deck a ser trabalhado
+        if keyDeck=="":
             keyDeck = self.menu.selection( View.listDecks() )
-            self.persistence.meta(keyDeck)        
-            #Continua o processo de onde parou e renderiza um novo PDF
-            self.metaData()
-            self.requestUrl(self.meta['url'])
-            self.makeDeck()               
-            self.getImg()
-            self.myDeck()
-
- 
+        self.persistence.meta(keyDeck)        
+        #Continua o processo de onde parou e renderiza um novo PDF
+        self.metaData()
+        self.requestUrl(self.meta['url'])
+        self.makeDeck()               
+        self.getImg()
+        self.myDeck()
 
     def requestUrl(self, url):
         """ Request da Pagina """
@@ -119,7 +124,6 @@ class Main:
         else:
             print("Ja existe um diretorio com este nome")
 
-
     def metaData(self, url=""):
         """ Cria um arquivos somente com meta dados """
         if(not self.persistence.processOk("meta")):
@@ -139,9 +143,19 @@ class Main:
         #selecionar o extractor / scraper
         self.scraper = self.extractionManager.selectExtractor(self.meta["extractor"])
 
+    def run(self):
+        flag = self.args.flags()
+        #Fluxo
+        if not (bool(flag.url) or bool(flag.id)):
+            arg = self.menu.selection(View.listOptions())
+            if(arg == "New"):
+                self.optNew()
+            elif(arg == "Old"):
+                self.optOld()
+        elif bool(flag.url):
+            self.optNew(flag.url)
+        elif bool(flag.id):
+            self.optOld(flag.id)
 
 
-
-
-
-Main()
+Main().run()

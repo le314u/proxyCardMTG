@@ -13,7 +13,7 @@ class CMD:
       #Forçar downlaod das imagens novamente
     #Xor New/Old
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('-i', action='store_true', help='Menu interativo') 
+    group.add_argument('-i', action='store_true',default=False, help='Menu interativo') 
     group.add_argument('-url', help='define qual o url sera extraido o deck')
     group.add_argument('-id', help='define qual o deck sera remontado') 
     #Continua de uma determinada etapa

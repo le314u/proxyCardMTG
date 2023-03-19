@@ -2,24 +2,20 @@
 from bs4 import BeautifulSoup #Biblioteca de extração de dados
 import lxml #Biblioteca parser(analisador) HTML
 import os #Biblioteca para manipular diretorios
-from .extractor import Extractor
     
-class LigaMagic(Extractor):
-    def __init__(self, verbose=False):
-        super().__init__(verbose);
-
-    def load(self, html, nameDeck, pastaDeck):
-        super().load(html, nameDeck, pastaDeck);
+class LigaMagic():
+    def __init__(self):
+        pass
         
     @staticmethod
-    def thisExtractor(urlBase):
+    def match(urlBase):
         urlBase = urlBase.lower()
         return (urlBase.find('ligamagic.') != -1)
     
     
-    def catalogarDeck(self):
+    def catalogarDeck(self,html):
         '''Cataloga o Deck (pegando [qtd, nome, img, css])'''
-        httpEstruct = BeautifulSoup(self.html, 'lxml')
+        httpEstruct = BeautifulSoup(html, 'lxml')
         try:
             linhas = httpEstruct.tbody.findAll('tr')
             nKey = "";
@@ -33,15 +29,13 @@ class LigaMagic(Extractor):
             if len(colunas) == 1:
                 if len(colunas[0].contents) == 1:
                     #Chegou ao fim onde informa o total de cartas
-                    if(self.verbose):
-                        print("Deck Completo"+colunas[0].contents[0]+" "*60)
-                        break
+                    print("Deck Completo"+colunas[0].contents[0]+" "*60)
                 else:
                     #label que define o tipo da carta (criatura, artefato,magica)
                     nKey = colunas[0].contents[0].replace(" ","",-1)
-                    self.Deck[nKey] = []
-                    if(self.verbose):
-                        print("Catalogando :"+nKey+" "*60)
+                    Deck = {}
+                    Deck[nKey] = []
+                    print("Catalogando :"+nKey+" "*60)
 
             else:
                 qtd = int(colunas[0].string)
@@ -50,5 +44,5 @@ class LigaMagic(Extractor):
                 url = httpEstruct.find_all(id="mystickytooltip")[0].find(id="lazy_"+img)['lazy-src'][2:]
         
                 #Quantidade e nome da carta
-                self.Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
-        return self.Deck
+                Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
+        return Deck

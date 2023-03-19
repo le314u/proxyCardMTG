@@ -122,3 +122,15 @@ class pdf:
             self.printCut()
 
         self.countCard()
+    
+    #Criação do arquivo PDF
+    def dumpPDF(self,persistence,deck,amountmax=True):
+        #Cria o canvas do PDF
+        self.makePdf(persistence.pastaDeck+"/"+persistence.nameDeck+".pdf")
+        #Preenche o canvas com as imagens do Deck
+        for type in deck:
+            for card in deck[type]:
+                if( card['qtd'] <= 4 or not amountmax):#So desenha caso tenha 4 ou menos quantidades de uma carta
+                    for i in range(card['qtd']):
+                        self.printCard("Deck/img/"+card['img']+'.jpg')
+        self.close()

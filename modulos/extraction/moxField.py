@@ -2,24 +2,20 @@
 from bs4 import BeautifulSoup #Biblioteca de extração de dados
 import lxml #Biblioteca parser(analisador) HTML
 import os #Biblioteca para manipular diretorios
-from .extractor import Extractor
     
-class MoxField(Extractor):
-    def __init__(self, verbose=False):
-        super().__init__(verbose);
-
-    def load(self, html, nameDeck, pastaDeck):
-        super().load(html, nameDeck, pastaDeck);
+class MoxField():
+    def __init__(self):
+        pass
         
     @staticmethod
-    def thisExtractor(urlBase):
+    def match(urlBase):
         urlBase = urlBase.lower()
         return (urlBase.find('moxfield.') != -1)
 
     
-    def catalogarDeck(self):
+    def catalogarDeck(self,html):
         '''Cataloga o Deck (pegando [qtd, nome, img, css])'''
-        httpEstruct = BeautifulSoup(self.html, 'lxml')
+        httpEstruct = BeautifulSoup(html, 'lxml')
         try:
             tabelas = httpEstruct.findAll('table')
         except:
@@ -28,10 +24,11 @@ class MoxField(Extractor):
 
         
         #Passa por todas as tabelas (cada tabela é um tipo de carta)
+        Deck = {}
         for tabela in tabelas:
             nKey = tabela.find('tr').find('a').contents[1].split(' ')[1]
-            if(not nKey in self.Deck):
-                self.Deck[nKey] = []
+            if(not nKey in Deck):
+                Deck[nKey] = []
                 tabela.find('tbody')
                 linhas = tabela.find('tbody').findAll('tr')
                 #Passa por todas as cartas (cada linha é uma carta)
@@ -42,5 +39,5 @@ class MoxField(Extractor):
                     img = linha["data-hash"]#Style css é o nome do arquivo
                     url = "assets.moxfield.net/cards/card-"+img+"-normal.webp"
                     #Quantidade e nome da carta
-                    self.Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
-        return self.Deck
+                    Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
+        return Deck

@@ -1,22 +1,22 @@
 from os import name
-from urllib.parse import urldefrag
-from urllib.parse import urlparse
-from unidecode import Cache
-from modulos.extraction import manager
+from modulos.deck import Deck
+from modulos.html import Html
+from modulos.meta import Meta
+from modulos.extraction import extraction
 from modulos import pdf, persistence, request, menu
 from modulos.view import View
 from modulos.cmd import CMD
-from ast import literal_eval
-import json
-import random
 
 class Main:
     def __init__(self):
         # Import de modulos
+        #Steps
+        self.html = Html()
+        self.deck = Deck()
+        self.meta = Meta()
         self.menu = menu.Menu()
         self.persistence = persistence.persistence()
         self.request = request.request()
-        self.extractionManager = manager.Manager()
         self.pdf = pdf.pdf()
         self.args = CMD()
         self.conf = {
@@ -26,54 +26,46 @@ class Main:
             "meta":""
         }
 
-
-    def input(self):
-        return self.menu.selection(View.listOptions())
-    def optNew(self,url=""):
-        #Cria um deck passo a passo
-        if url=="":
-            url = input("Digite a url: ")
-        self.metaData(url)
-        self.requestUrl(url)
-        self.makeDeck()
-        self.getImg()
-        self.myDeck()
-    def optOld(self,keyDeck=""):
-        #Verifica qual o deck a ser trabalhado
-        if keyDeck=="":
-            keyDeck = self.menu.selection( View.listDecks() )
-        self.persistence.meta(keyDeck)        
-        #Continua o processo de onde parou e renderiza um novo PDF
-        self.metaData()
-        self.requestUrl(self.conf["meta"]['url'])
-        self.makeDeck()               
-        self.getImg()
-        self.myDeck()
-
-    def requestUrl(self, url):
-        """ Request da Pagina """
+    def stepHTML(self, url=""):
+        """ Request da Pagina """ 
+        att = {};
         if(not self.persistence.processOk("html")):
-            #Faz Download da pagina 
-            self.conf["html"] = self.request.downloadHTML(url)
-            #Persiste a pagina 
-            self.persistence.persistFile(self.conf["html"], "html")
+            att["html"] = self.html.loadUrl(self.request,url)
+            self.html.dumpHTML(self.persistence,att["html"])
         else:
             #Le o html do arquivo
-            self.conf["html"] = self.persistence.load("html")
+            att["html"] = self.html.loadFile(self.persistence)
+        self.conf.update(att)
 
-    def makeDeck(self):
+    def stepDECK(self):
         """ Cataloga o Deck """
+        att = {};
         if(not self.persistence.processOk("deck")):
-            #Preparando para trabalhar com o deck
-            self.conf["scraper"].load(self.conf["html"], self.persistence.nameDeck, self.persistence.pastaDeck)
-            self.conf["deck"] = self.conf["scraper"].catalogarDeck()
-            #Formata o Deck
-            prettyDeck = str( json.dumps(self.conf["deck"], indent=4, sort_keys=False) )
-            #Persiste o Deck 
-            self.persistence.persistFile( prettyDeck, "deck")
+            att["deck"] = self.deck.create(self.conf["scraper"], self.conf["html"])
+            self.deck.dumpDECK(self.persistence,att["deck"])
         else:
             #Le o arquivo de catalogo do Deck
-            self.conf["deck"] = literal_eval(self.persistence.load("deck"))
+            att["deck"]=self.deck.loadFile(self.persistence)
+        self.conf.update(att)
+
+    def stepPDF(self):
+        #Cria o canvas do PDF
+        self.pdf.dumpPDF(self.persistence,self.conf["deck"])
+
+    def stepMETA(self,url=""):
+        """ Cria um arquivos somente com meta dados """
+        att={}
+        if(url != "" or not self.persistence.processOk("meta")):
+            att = self.meta.meta(url)
+            self.persistence.setupDeck(att["meta"]["nameDeck"])
+            self.meta.dumpMETA(self.persistence, att["meta"])
+        else:
+            print("OUTRO")
+            att = self.meta.loadFile(self.persistence)
+        self.conf.update(att)
+
+    def stepPDF(self):
+        self.pdf.dumpPDF(self.persistence,self.conf["deck"])
 
     def getImg(self):
         """ Faz Download das Imagens """
@@ -93,73 +85,51 @@ class Main:
                         self.request.downloadIMG(url, name)
             self.persistence.persistFile(listUrl, "img")
 
-    def myDeck(self):
-        #Cria o canvas do PDF
-        self.pdf.makePdf(self.persistence.pastaDeck+"/"+self.persistence.nameDeck+".pdf")
-        #Preenche o canvas com as imagens do Deck
-        for type in self.conf["deck"]:
-            for card in self.conf["deck"][type]:
-                if(card['qtd'] <= 4):#So desenha caso tenha 4 ou menos quantidades de uma carta
-                    for i in range(card['qtd']):
-                        self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
-        self.pdf.close()
+    def input(self):
+        return self.menu.selection(View.listOptions())
+        
+    def optNew(self,url=""):
+        #Cria um deck passo a passo
+        if url=="":
+            url = input("Digite a url: ")
+        self.flow(url)  
     
-    def myDeckRandom(self):
-        #Cria lista
-        l=[]
-        for type in self.conf["deck"]:
-            for card in self.conf["deck"][type]:
-                for i in range(card['qtd']):
-                    l.append(card)
-        random.shuffle(l)
-    
-        #Cria o canvas do PDF
-        self.pdf.makePdf(self.persistence.pastaDeck+"/"+self.persistence.nameDeck+"_Random.pdf")
-        for card in l:
-            self.pdf.printCard("Deck/img/"+card['img']+'.jpg')
-        self.pdf.close()
 
-    def dirDeck(self):
-        """ Verifica se existe um diretorio proprio para o deck """
-        if not self.persistence.it_is_ok(self.persistence.pastaDeck):
-            #Cria o diretorio que ficara todos os arquivos do deck
-            if(not self.persistence.persistDir(self.persistence.pastaDeck)):
-                print("Erro ao criar Diretorio")
-        else:
-            print("Ja existe um diretorio com este nome")
+    def optOld(self,keyDeck=""):
+        #Verifica qual o deck a ser trabalhado
+        if keyDeck=="":
+            keyDeck = self.menu.selection( View.listDecks() )
+        self.persistence.setupDeck(keyDeck)       
+        #Continua o processo de onde parou e renderiza um novo PDF
+        self.flow()
 
-    def metaData(self, url=""):
-        """ Cria um arquivos somente com meta dados """
-        if(not self.persistence.processOk("meta")):
-            #Extrai metadados da url
-            keyDeck = url.split("/")[-1].split("=")[-1]
-            site = urlparse(url).netloc
-            #Cria um Objeto para ser salvo
-            self.conf["meta"] = { "nameDeck":keyDeck, "dirDeck":"Deck/deck_"+keyDeck, "extractor":site, "url":url }
-            prettyMeta = str( json.dumps(self.conf["meta"], indent=4, sort_keys=True) )
-            #Persiste os meta dados
-            self.persistence.meta(keyDeck)
-            self.dirDeck()
-            self.persistence.persistFile( prettyMeta, "meta")
-        else:
-            #Le o arquivo de meta dados do Deck
-            self.conf["meta"] = literal_eval(self.persistence.load("meta"))
-        #selecionar o extractor / scraper
-        self.conf["scraper"] = self.extractionManager.selectExtractor(self.conf["meta"]["extractor"])
+    def flow(self,url=""):
+        self.stepMETA(url)
+        print(self.conf)
+        print(self.conf)
+        print(self.conf)
+        self.stepHTML(self.conf["meta"]["url"])
+        self.stepDECK()
+        self.getImg()
+        self.stepPDF()
 
     def run(self):
-        flag = self.args.flags()
+        FLAGS = self.args.flags()
         #Fluxo
-        if not (bool(flag.url) or bool(flag.id)):
+        if not (bool(FLAGS.url) or bool(FLAGS.id)):
             arg = self.menu.selection(View.listOptions())
             if(arg == "New"):
                 self.optNew()
             elif(arg == "Old"):
                 self.optOld()
-        elif bool(flag.url):
-            self.optNew(flag.url)
-        elif bool(flag.id):
-            self.optOld(flag.id)
-
+        elif bool(FLAGS.url):
+            self.optNew(FLAGS.url)
+        elif bool(FLAGS.id):
+            self.optOld(FLAGS.id)
 
 Main().run()
+
+#Download da página HTML
+#Extração das cartas presentes no deck
+#Download das imagens das cartas
+#Criação do arquivo PDF

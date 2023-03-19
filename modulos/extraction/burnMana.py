@@ -4,17 +4,13 @@ import lxml #Biblioteca parser(analisador) HTML
 import os #Biblioteca para manipular diretorios
 import re #Biblioteca para manipula expressoes regulares
 from unidecode import unidecode # Biblioteca para tirar os acentos 
-from .extractor import Extractor
-    
-class BurnMana(Extractor):
-    def __init__(self, verbose=False):
-        super().__init__(verbose);
 
-    def load(self, html, nameDeck, pastaDeck):
-        super().load(html, nameDeck, pastaDeck);
+class BurnMana():
+    def __init__(self):
+      pass
     
     @staticmethod
-    def thisExtractor(urlBase):
+    def match(urlBase):
         urlBase = urlBase.lower()
         return (urlBase.find('burnmana.') != -1)
 
@@ -32,9 +28,9 @@ class BurnMana(Extractor):
         url = re.sub("^https://", "", uri)
         return url
 
-    def catalogarDeck(self):
+    def catalogarDeck(self,html):
         '''Cataloga o Deck (pegando [qtd, nome, img, css])'''
-        httpEstruct = BeautifulSoup(self.html, 'lxml')
+        httpEstruct = BeautifulSoup(html, 'lxml')
 
         # verifica se o request ocorreu conforme o esperado
         try:
@@ -49,7 +45,8 @@ class BurnMana(Extractor):
             # Converte o nome para um nome valido para as propriedades
             nameOfKind = kindOfCard.find(class_ = "deck-card-list__type").contents[0]
             nKey = self._name2nameAttribute(nameOfKind)
-            self.Deck[nKey] = []
+            Deck = {}
+            Deck[nKey] = []
             # Cada carta é um <li>
             blockOfCards = kindOfCard.findAll("li")
             for card in blockOfCards:
@@ -58,12 +55,11 @@ class BurnMana(Extractor):
                 nameOfCard = self._nameCard(detailsCard.contents[0])
                 urlImg = self._removeProtocol(detailsCard['data-cardimageurl'])
                 nameImg = urlImg.split('/')[-1]
-                if(self.verbose):
-                    print("Catalogando : "+nKey+" "*60)
-                self.Deck[nKey].append({
+                print("Catalogando : "+nKey+" "*60)
+                Deck[nKey].append({
                         "qtd":int(qtd),
                         "name":nameOfCard,
                         "url":urlImg,
                         "img":nameImg
                     })
-        return self.Deck
+        return Deck

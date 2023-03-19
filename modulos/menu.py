@@ -39,7 +39,7 @@ class Menu:
         return arg
 
     def error(self):
-        print("-"*40)
-        print("Estou presumindo que você não esta lendo, entao vou encerrar")
-        print("-"*40)
+        msg = "Estou presumindo que você não esta lendo, entao vou encerrar"
+        tab = "-"* len(msg)
+        print(tab+"\n"+msg+"\n"+tab)
         exit()

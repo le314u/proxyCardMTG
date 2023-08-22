@@ -23,6 +23,7 @@ class LigaMagic():
             print("Deck Inexistente ou privado")
             return
 
+        Deck = {}
         #Passa por todas as cartas (cada linha é uma carta)
         for linha in linhas:
             colunas = linha.findAll('td',recursive=False)#Pega apenas os filhos diretos
@@ -33,7 +34,7 @@ class LigaMagic():
                 else:
                     #label que define o tipo da carta (criatura, artefato,magica)
                     nKey = colunas[0].contents[0].replace(" ","",-1)
-                    Deck = {}
+                    
                     Deck[nKey] = []
                     print("Catalogando :"+nKey+" "*60)
 
@@ -42,7 +43,7 @@ class LigaMagic():
                 name = colunas[1].findNext('a').getText()
                 img = linha.find("a")["data-tooltip"]#Style css é o nome do arquivo
                 url = httpEstruct.find_all(id="mystickytooltip")[0].find(id="lazy_"+img)['lazy-src'][2:]
-        
                 #Quantidade e nome da carta
                 Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
+        print(Deck)
         return Deck

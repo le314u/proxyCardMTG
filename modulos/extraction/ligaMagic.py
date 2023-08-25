@@ -31,20 +31,19 @@ class LigaMagic():
             if len(atr) == 1:
                 if len(atr[0].contents) == 1:
                     #Chegou ao fim onde informa o total de cartas
-                    print("Deck Completo"+atr[0].contents[0]+" "*60)
+                    print("Deck Completo "+atr[0].contents[0]+" "*60)
                 else:
                     #label que define o tipo da carta (criatura, artefato,magica)
                     nKey = carta.find('td',class_="deck-type").getText().split(" ")[0]
                     Deck[nKey] = []
-                    print("Catalogando :"+nKey+" "*60)
+                    print("Catalogando: "+nKey+" "*60)
             else:
                 qtd = carta.find('td',class_="deck-qty").string
                 name = carta.find('td',class_="deck-card").find('a').getText()
                 img = carta.find('a', attrs={'data-tooltip': True}).get("data-tooltip")
                 all_img = httpEstruct.find(id="mystickytooltip")
-                url = all_img.find(id="lazy_"+img).get("lazy-src")[2:]
+                url = "https://"+all_img.find(id="lazy_"+img).get("lazy-src")[2:]
                 #Quantidade e nome da carta
                 card = Card(qtd,name,url)
                 Deck[nKey].append(card.json())
-        print(Deck)
         return Deck

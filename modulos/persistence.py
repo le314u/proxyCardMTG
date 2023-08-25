@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from unicodedata import name
 from urllib.parse import urlparse
+from .msg import msg
 
 
 class persistence:
@@ -35,8 +36,9 @@ class persistence:
     def processOk(self, extensao):
         ''' Verifica o que ja foi feito '''
         #Arquivo esta ok?
-        print(self.nameDeck+"."+extensao)
-        return self.it_is_ok(self.pastaDeck+"/"+self.nameDeck+"."+extensao)
+        value = self.it_is_ok(self.pastaDeck+"/"+self.nameDeck+"."+extensao)
+        msg(extensao.upper(),value)
+        return value
 
     def it_is_ok(self, path):
         ''' Verifica se existe um arquivo de acordo com o path '''

@@ -4,9 +4,9 @@ class Card:
 
     def __init__(self,qtd,name,url) -> None:
         self.qtd=int(qtd)
-        self.name=name
+        self.name="".join(name.split("/"))
         self.url=url
-        self.img=self.nameImg(name)
+        self.img=self.nameImg(self.name)
 
     def json(self):
         return {

@@ -55,7 +55,7 @@ class BurnMana():
                 nameOfCard = self._nameCard(detailsCard.contents[0])
                 urlImg = self._removeProtocol(detailsCard['data-cardimageurl'])
                 nameImg = urlImg.split('/')[-1]
-                print("Catalogando : "+nKey+" "*60)
+                print("Catalogando: "+nKey+" "*60)
                 Deck[nKey].append({
                         "qtd":int(qtd),
                         "name":nameOfCard,

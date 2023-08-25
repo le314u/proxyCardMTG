@@ -19,7 +19,10 @@ class request:
     
     def downloadIMG(self, url, nameArq):
         if(self.verbose):
-            print("Fazendo download de: "+url,end=" "*60+"\r")
+            print("Fazendo download de: "+url,end="\r")
         binImg = requests.get(url, headers=self.headers)
         open(nameArq,'wb').write(binImg.content)
+        if(self.verbose):
+            size = len("Fazendo download de: "+url)
+            print(" "*size,end="\r")
  

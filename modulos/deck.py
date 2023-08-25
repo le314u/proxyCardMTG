@@ -24,7 +24,7 @@ class Deck:
         for type in deck:
             cards = deck[type]
             for card in cards:
-                msg = card["qtd"]+" "+card['name']
+                msg = str(card["qtd"])+" "+str(card['name'])
                 print( msg)
                 listUrl.append(card['url'])
                 #Faz Download da imagem

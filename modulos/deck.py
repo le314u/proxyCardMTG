@@ -24,11 +24,11 @@ class Deck:
         for type in deck:
             cards = deck[type]
             for card in cards:
-                msg = card["qtd"]+"\tx\t"+card['name']
+                msg = card["qtd"]+" "+card['name']
                 print( msg)
                 listUrl.append(card['url'])
                 #Faz Download da imagem
-                url = "https://"+card['url']
+                url = card['url']
                 name = "Deck/img/"+card['img']+'.jpg'
                 #Verifica se a imagem ja existe
                 if(not persistence.it_is_ok(name)):

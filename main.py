@@ -69,20 +69,8 @@ class Main:
     def getImg(self):
         """ Faz Download das Imagens """
         if(not self.persistence.processOk("img")):
-            listUrl = ''
-            #Preparando para trabalhar com o deck
-            print("Cards:")
-            for type in self.conf["deck"]:
-                for card in self.conf["deck"][type]:
-                    print(str(card["qtd"])+"\tx\t"+card['name'])
-                    listUrl = listUrl + card['url']+'\n'
-                    #Faz Download da imagem
-                    url = "https://"+card['url']
-                    name = "Deck/img/"+card['img']+'.jpg'
-                    #Verifica se a imagem ja existe
-                    if(not self.persistence.it_is_ok(name)):
-                        self.request.downloadIMG(url, name)
-            self.persistence.persistFile(listUrl, "img")
+            self.deck.dumpIMG(self.request, self.persistence, self.conf["deck"])
+    
 
     def input(self):
         return self.menu.selection(View.listOptions())

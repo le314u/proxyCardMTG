@@ -2,7 +2,8 @@
 from bs4 import BeautifulSoup #Biblioteca de extração de dados
 import lxml #Biblioteca parser(analisador) HTML
 import os #Biblioteca para manipular diretorios
-    
+from ..models.card import Card #Biblioteca para manipular diretorios
+
 class MoxField():
     def __init__(self):
         pass
@@ -38,15 +39,7 @@ class MoxField():
                 name = carta.find('div',class_="decklist-card-phantomsearch").text
                 qtd = carta.find('div', class_='decklist-card-quantity show-on-hover').getText()
                 qtd = 1 if qtd == 'x' else qtd
-                
-                img = carta.get('data-hash')
-                url="//".join( carta.find('img').get('src').split("//")[1:])
-                card = {
-                    "qtd":int(qtd),
-                    "name":name,
-                    "url":url,
-                    "img":img
-                }
-                print(card)
-                Deck[nKey].append(card)
+                url=carta.find('img').get('src')
+                card = Card(qtd,name,url)
+                Deck[nKey].append(card.json())
         return Deck

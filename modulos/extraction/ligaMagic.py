@@ -1,7 +1,8 @@
 # -*- encoding: utf-8 -*-
 from bs4 import BeautifulSoup #Biblioteca de extração de dados
 import lxml #Biblioteca parser(analisador) HTML
-import os #Biblioteca para manipular diretorios
+import os
+from ..models.card import Card #Biblioteca para manipular diretorios
     
 class LigaMagic():
     def __init__(self):
@@ -17,7 +18,7 @@ class LigaMagic():
         '''Cataloga o Deck (pegando [qtd, nome, img, css])'''
         httpEstruct = BeautifulSoup(html, 'lxml')
         try:
-            linhas = httpEstruct.tbody.findAll('tr')
+            cartas = httpEstruct.tbody.findAll('tr')
             nKey = "";
         except:
             print("Deck Inexistente ou privado")
@@ -25,25 +26,25 @@ class LigaMagic():
 
         Deck = {}
         #Passa por todas as cartas (cada linha é uma carta)
-        for linha in linhas:
-            colunas = linha.findAll('td',recursive=False)#Pega apenas os filhos diretos
-            if len(colunas) == 1:
-                if len(colunas[0].contents) == 1:
+        for carta in cartas:
+            atr = carta.findAll('td',recursive=False)#Pega apenas os filhos diretos
+            if len(atr) == 1:
+                if len(atr[0].contents) == 1:
                     #Chegou ao fim onde informa o total de cartas
-                    print("Deck Completo"+colunas[0].contents[0]+" "*60)
+                    print("Deck Completo"+atr[0].contents[0]+" "*60)
                 else:
                     #label que define o tipo da carta (criatura, artefato,magica)
-                    nKey = colunas[0].contents[0].replace(" ","",-1)
-                    
+                    nKey = carta.find('td',class_="deck-type").getText().split(" ")[0]
                     Deck[nKey] = []
                     print("Catalogando :"+nKey+" "*60)
-
             else:
-                qtd = int(colunas[0].string)
-                name = colunas[1].findNext('a').getText()
-                img = linha.find("a")["data-tooltip"]#Style css é o nome do arquivo
-                url = httpEstruct.find_all(id="mystickytooltip")[0].find(id="lazy_"+img)['lazy-src'][2:]
+                qtd = carta.find('td',class_="deck-qty").string
+                name = carta.find('td',class_="deck-card").find('a').getText()
+                img = carta.find('a', attrs={'data-tooltip': True}).get("data-tooltip")
+                all_img = httpEstruct.find(id="mystickytooltip")
+                url = all_img.find(id="lazy_"+img).get("lazy-src")[2:]
                 #Quantidade e nome da carta
-                Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
+                card = Card(qtd,name,url)
+                Deck[nKey].append(card.json())
         print(Deck)
         return Deck

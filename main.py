@@ -70,6 +70,7 @@ class Main:
         """ Faz Download das Imagens """
         if(not self.persistence.processOk("img")):
             self.deck.dumpIMG(self.request, self.persistence, self.conf["deck"])
+   
     
 
     def input(self):

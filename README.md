@@ -18,12 +18,27 @@ No seu primeiro uso voce pode apenas executar o script init.sh na raiz do projet
 
 Ao iniciar a aplicação, o usuário terá duas opções:
 
-| Opção  | Descrição                                               |
+| Opção  | Descrição                                                |
 |--------|:--------------------------------------------------------:|
 | New    | Cria um PDF a partir de uma URL de um site compatível.   |
 | Old    | Cria um PDF a partir de um arquivo de deck (.deck).      |
 
 A opção `new` suporta URLs de sites como LigaMagic, BurnMana, TappedOut e MoxField (com algumas limitações pois a captura do html do mox field deve ser feita manualmente).
+
+
+## Comandline
+
+O projeto possui um conjunto de opções de linha de comando para personalizar o processo de geração do PDF do deck. Aqui estão algumas das opções disponíveis:
+
+- `-cut`: Imprime a borda da carta.
+- `-i`: Inicia o modo interativo do menu.
+- `-url`: Define a URL da qual o deck será extraído.
+- `-id`: Define o ID do deck a ser remontado.
+- `-html`: Força o request da página HTML.
+- `-e` ou `--extract`: Força a extração de dados do HTML.
+- `-d`: Força o download das imagens.
+- `-pdf`: Força apenas a reescrita do PDF.
+
 
 ### Processo
 

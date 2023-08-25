@@ -2,7 +2,6 @@ import argparse
 
 class CMD:
   def __init__(self):
-    print("OK")
     parser = argparse.ArgumentParser(
       prog = 'proxyMTG',
       description =  'Este é um projeto Python que gera um arquivo PDF de um deck de Magic: The Gathering. A partir de uma URL de sites como ligaMagic, burnMana, tappedout e moxField',

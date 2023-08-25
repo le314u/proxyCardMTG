@@ -16,28 +16,37 @@ class MoxField():
     def catalogarDeck(self,html):
         '''Cataloga o Deck (pegando [qtd, nome, img, css])'''
         httpEstruct = BeautifulSoup(html, 'lxml')
+        linhas = None
         try:
-            tabelas = httpEstruct.findAll('table')
+            row = httpEstruct.select_one('html > body > div:nth-of-type(1) > main > div:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)')
+            linhas = row.find_all('div', class_="col-auto")
         except:
             print("Deck Inexistente ou privado")
             return
 
-        
+        print("-------------------------")
         #Passa por todas as tabelas (cada tabela é um tipo de carta)
         Deck = {}
-        for tabela in tabelas:
-            nKey = tabela.find('tr').find('a').contents[1].split(' ')[1]
+        for linha in linhas:
+            #Tipo de carta
+            nKey = linha.find('span', class_ = 'me-1').text
             if(not nKey in Deck):
-                Deck[nKey] = []
-                tabela.find('tbody')
-                linhas = tabela.find('tbody').findAll('tr')
-                #Passa por todas as cartas (cada linha é uma carta)
-                for linha in linhas:
-                    colunas = linha.findAll('td',recursive=False)#Pega apenas os filhos diretos
-                    qtd = colunas[0].text
-                    name = colunas[1].text
-                    img = linha["data-hash"]#Style css é o nome do arquivo
-                    url = "assets.moxfield.net/cards/card-"+img+"-normal.webp"
-                    #Quantidade e nome da carta
-                    Deck[nKey].append({"qtd":int(qtd),"name":name,"url":url,"img":img})
+                Deck[nKey] = []    
+            #Cartas do tipo 'x'
+            cartas = linha.find_all('div', attrs={'data-hash': True})
+            for carta in cartas:
+                name = carta.find('div',class_="decklist-card-phantomsearch").text
+                qtd = carta.find('div', class_='decklist-card-quantity show-on-hover').getText()
+                qtd = 1 if qtd == 'x' else qtd
+                
+                img = carta.get('data-hash')
+                url="//".join( carta.find('img').get('src').split("//")[1:])
+                card = {
+                    "qtd":int(qtd),
+                    "name":name,
+                    "url":url,
+                    "img":img
+                }
+                print(card)
+                Deck[nKey].append(card)
         return Deck

@@ -60,7 +60,6 @@ class Main:
             self.persistence.setupDeck(att["meta"]["nameDeck"])
             self.meta.dumpMETA(self.persistence, att["meta"])
         else:
-            print("OUTRO")
             att = self.meta.loadFile(self.persistence)
         self.conf.update(att)
 
@@ -105,9 +104,6 @@ class Main:
 
     def flow(self,url=""):
         self.stepMETA(url)
-        print(self.conf)
-        print(self.conf)
-        print(self.conf)
         self.stepHTML(self.conf["meta"]["url"])
         self.stepDECK()
         self.getImg()

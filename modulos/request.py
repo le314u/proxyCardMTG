@@ -22,7 +22,4 @@ class request:
             print("Fazendo download de: "+url,end=" "*60+"\r")
         binImg = requests.get(url, headers=self.headers)
         open(nameArq,'wb').write(binImg.content)
-    
-    def requestApi(uri):
-        json = requests.get(url, headers = self.headers)
-        return json
+ 

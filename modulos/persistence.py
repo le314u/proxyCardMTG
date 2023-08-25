@@ -35,7 +35,7 @@ class persistence:
     def processOk(self, extensao):
         ''' Verifica o que ja foi feito '''
         #Arquivo esta ok?
-        print(self.pastaDeck+"/"+self.nameDeck+"."+extensao)
+        print(self.nameDeck+"."+extensao)
         return self.it_is_ok(self.pastaDeck+"/"+self.nameDeck+"."+extensao)
 
     def it_is_ok(self, path):

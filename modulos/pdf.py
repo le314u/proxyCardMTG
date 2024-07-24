@@ -4,7 +4,7 @@ from reportlab.pdfgen import canvas #Biblioteca para gerar pdf
 from reportlab.lib.utils import ImageReader #Biblioteca para inserir Imagem no pdf
 import math
 
-class pdf:
+class Pdf:
 
     def __init__(self):
         self.file = None

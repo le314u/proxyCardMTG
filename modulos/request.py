@@ -3,7 +3,7 @@ import requests #Biblioteca que faz requisições http
 from bs4 import BeautifulSoup #Biblioteca de extração de dados
 import lxml #Biblioteca parser(analisador) HTML
 from . import persistence
-class request:
+class Request:
 
     def __init__(self, verbose=True):
         #Cabeçalho de requisição get

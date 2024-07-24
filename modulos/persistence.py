@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 from .msg import msg
 
 
-class persistence:
+class Persistence:
 
     def __init__(self):
         self.DIR="Deck/"

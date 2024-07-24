@@ -9,7 +9,7 @@ class CMD:
                         
     #Flag
     parser.add_argument('-cut', action='store_true', help='imprime a borda da carta') 
-      #Forçar downlaod das imagens novamente
+    #Forçar downlaod das imagens novamente
     #Xor New/Old
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-i', action='store_true',default=False, help='Menu interativo') 

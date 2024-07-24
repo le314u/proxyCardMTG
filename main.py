@@ -1,11 +1,47 @@
 from os import name
+from rich import print
 from modulos.deck import Deck
 from modulos.html import Html
 from modulos.meta import Meta
 from modulos.extraction import extraction
-from modulos import pdf, persistence, request, menu
-from modulos.view import View
-from modulos.cmd import CMD
+from modulos.view.view import View
+from modulos.pdf import Pdf
+from modulos.cli.cmd import CMD
+from modulos.persistence import Persistence
+from modulos.request import Request
+
+
+class State:
+    def __init__(self):
+        self.states = ["META","HTML","DECK","DOWNLOAD","PDF","FINISH"]
+        self.state = -1
+        self.error = -1
+    
+    def next(self):
+        self.state = (self.state+1) % len(self.states)        
+
+    def setError(self):
+        self.error = 1
+
+    def reset(self):
+        self.error = -1
+        self.state = -1
+
+    def hasError(self):
+        return self.error == 1
+
+    def setState(self,state):
+        if state in self.states:
+            self.states.index(state)
+    
+    def getState(self):
+        if(self.state!= -1):
+            return str( self.states[self.state] )
+        else:
+            return "OFF"
+
+
+
 
 class Main:
     def __init__(self):
@@ -14,10 +50,9 @@ class Main:
         self.html = Html()
         self.deck = Deck()
         self.meta = Meta()
-        self.menu = menu.Menu()
-        self.persistence = persistence.persistence()
-        self.request = request.request()
-        self.pdf = pdf.pdf()
+        self.persistence = Persistence()
+        self.request = Request()
+        self.pdf = Pdf()
         self.args = CMD()
         self.conf = {
             "html":"",
@@ -25,6 +60,7 @@ class Main:
             "deck":"",
             "meta":""
         }
+        self.state = State()
 
     def stepHTML(self, url=""):
         """ Request da Pagina """ 
@@ -70,51 +106,46 @@ class Main:
         """ Faz Download das Imagens """
         if(not self.persistence.processOk("img")):
             self.deck.dumpIMG(self.request, self.persistence, self.conf["deck"])
-   
-    
-
-    def input(self):
-        return self.menu.selection(View.listOptions())
-        
-    def optNew(self,url=""):
-        #Cria um deck passo a passo
-        if url=="":
-            url = input("Digite a url: ")
-        self.flow(url)  
-    
-
-    def optOld(self,keyDeck=""):
-        #Verifica qual o deck a ser trabalhado
-        if keyDeck=="":
-            keyDeck = self.menu.selection( View.listDecks() )
-        self.persistence.setupDeck(keyDeck)       
-        #Continua o processo de onde parou e renderiza um novo PDF
-        self.flow()
-
+  
     def flow(self,url=""):
+        self.state.setState("META")
+
+        self.state.next()
         self.stepMETA(url)
+
+        self.state.next()
         self.stepHTML(self.conf["meta"]["url"])
+
+        self.state.next()
         self.stepDECK()
+
+        self.state.next()
         self.getImg()
+
+        self.state.next()
         self.stepPDF()
+        
+        self.state.setState("FINISH")
+
+
 
     def run(self):
         FLAGS = self.args.flags()
-        #Fluxo
+
+        #Se não tiver Flag inicia a TUI
         if not (bool(FLAGS.url) or bool(FLAGS.id)):
-            arg = self.menu.selection(View.listOptions())
-            if(arg == "New"):
-                self.optNew()
-            elif(arg == "Old"):
-                self.optOld()
+            app = View()
+            app.setConf(self.flow,self.persistence.setupDeck,self.state)
+            app.run()
+        #CLI -url 
         elif bool(FLAGS.url):
-            self.optNew(FLAGS.url)
+            self.flow(FLAGS.url)  
+        #CLI -id
         elif bool(FLAGS.id):
-            self.optOld(FLAGS.id)
+            #Verifica qual o deck a ser trabalhado
+            self.persistence.setupDeck( FLAGS.id )       
+            #Continua o processo de onde parou e renderiza um novo PDF
+            self.flow()
+
 
 Main().run()
-
-#Download da página HTML
-#Extração das cartas presentes no deck
-#Download das imagens das cartas
-#Criação do arquivo PDF

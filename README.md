@@ -4,7 +4,7 @@ Este projeto consiste em uma aplicação em Python que permite a criação de um
 
 ## Instalação
 
-Para utilizar a ferramenta, é necessário ter o Python 3 instalado no computador, juntamente com as bibliotecas Pillow e requests. Para instalar as bibliotecas, basta executar o seguinte comando:
+Para utilizar a ferramenta, é necessário ter o Python 3 instalado no computador e baixar as dependências em  requirements.txt por meio do comando:
 
 ```pip install -r requirements.txt```
 
@@ -16,34 +16,29 @@ No seu primeiro uso voce pode apenas executar o script init.sh na raiz do projet
 
 ## Instruções de Uso
 
-Ao iniciar a aplicação, o usuário terá duas opções:
-
-| Opção  | Descrição                                                |
-|--------|:--------------------------------------------------------:|
-| New    | Cria um PDF a partir de uma URL de um site compatível.   |
-| Old    | Cria um PDF a partir de um arquivo de deck (.deck).      |
-
-A opção `new` suporta URLs de sites como LigaMagic, BurnMana, TappedOut e MoxField (com algumas limitações pois a captura do html do mox field deve ser feita manualmente).
+O programa suporta URLs de sites como LigaMagic, BurnMana, TappedOut e MoxField (com algumas limitações pois a captura do html do mox field deve ser feita manualmente).
 
 
 ## Comandline
 
 O projeto possui um conjunto de opções de linha de comando para personalizar o processo de geração do PDF do deck. Aqui estão algumas das opções disponíveis:
 
-- `-cut`: Imprime a borda da carta.
-- `-i`: Inicia o modo interativo do menu.
 - `-url`: Define a URL da qual o deck será extraído.
 - `-id`: Define o ID do deck a ser remontado.
-- `-html`: Força o request da página HTML.
-- `-e` ou `--extract`: Força a extração de dados do HTML.
-- `-d`: Força o download das imagens.
-- `-pdf`: Força apenas a reescrita do PDF.
+
+
+- `-cut`: Imprime a borda da carta. [INATIVA]
+- `-i`: Inicia o modo interativo do menu.[INATIVA]
+- `-html`: Força o request da página HTML.[INATIVA]
+- `-e` ou `--extract`: Força a extração de dados do HTML.[INATIVA]
+- `-d`: Força o download das imagens.[INATIVA]
+- `-pdf`: Força apenas a reescrita do PDF.[INATIVA]
 
 
 ### Processo
 
-O processo de criação do PDF ocorre em quatro etapas:
-
+O processo de criação do PDF ocorre em cinco etapas:
+Criação de um arquivo que preserva MetaDados
 Download da página HTML  
 Extração das cartas presentes no deck  
 Download das imagens das cartas  
